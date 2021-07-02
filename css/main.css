@@ -1,0 +1,184 @@
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    z-index: 9;
+    top: 31px;
+}
+main {
+    width: 100%;
+    height: 204vh;
+    background-color: grey;
+}
+.site-size {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 120px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.header-bg {
+    position: absolute;
+    width: 100%;
+    background-color: #123E6B;
+    height: 69px;
+}
+
+.site-size__header {
+    width: 100%;
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header__logo-block img {
+    width: 83px;
+    height: 85px;
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.header__logo-block span {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+}
+.header__others-blocks {
+    display: flex;
+}
+
+.others-blocks__menu {
+    display: flex;
+    align-items: center;
+}
+.menu__container {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    margin-right: 60px;
+}
+.container__menu-item {
+    height: 100%;
+    margin-right: 50px;
+}
+.container__menu-item:last-child {
+    margin-right: 0;
+}
+.has-subitem .menu-item__item span:after {
+    content: '›';
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    margin-left: 10px;
+    /* width: 12px; */
+    /* height: 10px; */
+    display: block;
+    transform: rotate(
+            90deg
+    );
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+.menu-item__item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu-item__item span {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+.menu-item__submenu {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    width: auto;
+    margin-top: 10px;
+    padding: 10px 15px 20px 15px;
+    background: #00000085;
+    border-radius: 5px;
+    list-style: none;
+    color: white;
+    min-width: 235px;
+    opacity: 0;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+.container__menu-item:hover .menu-item__submenu{
+    display: flex;
+    opacity: 1;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+.container__menu-item:hover .menu-item__item span:after{
+    display: flex;
+    transform: rotate(269deg);
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+.others-blocks__callback-call {
+    width: 205px;
+    height: 52px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #23A6F0;
+    cursor: pointer;
+}
+.callback-call__text {
+    color: white;
+}
+.callback-call__text:after {
+    content: '→';
+    color: white;
+    margin-left: 15px;
+    width: 12px;
+    height: 10px;
+}
+.container__item span {
+    /*white-space: nowrap;*/
+    color: white;
+    font-weight: 400;
+    font-size: 13px;
+}
