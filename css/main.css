@@ -71,6 +71,7 @@ main {
 .others-blocks__menu {
     display: flex;
     align-items: center;
+    margin: 0;
 }
 .menu__container {
     list-style: none;
@@ -182,3 +183,104 @@ main {
     font-weight: 400;
     font-size: 13px;
 }
+.menu__burger {
+    padding: 5px 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: transparent;
+    outline: none;
+    align-items: center;
+}
+.menu__burger span {
+    width: 20px;
+    height: 1px;
+    background-color: white;
+}
+.mobile-dropdown {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 10px;
+    display: none;
+    background-color: #00000099;
+}
+.mobile-dropdown__mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.mobile-menu__container-item {
+    padding: 10px;
+    list-style: none;
+}
+.container-item__item {
+    padding: 5px;
+}
+.container-item__item span {
+    color: white;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+.container-item__submenu {
+    display: none;
+    list-style: none;
+    margin-left: 10px;
+}
+.mobile-menu__container-item:hover .container-item__item span,
+.submenu__container:hover .container__item span{
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    color: #23A6F0;
+;
+}
+.mobile-menu__container-item:hover .container-item__submenu {
+    display: block;
+}
+/*=======================adaptive======start===================*/
+@media(max-width: 1260px){
+    .others-blocks__menu {
+        order: 1;
+        margin-left: 5px;
+    }
+    .menu__container {
+        display: none;
+    }
+    .menu__burger {
+        display: flex;
+    }
+}
+@media(max-width: 768px){
+    .site-size {
+        padding: 0 60px;
+    }
+    .header__logo-block span {font-size: 16px;}
+    .header__logo-block img{
+        width: auto;
+        height: 40px;
+    }
+    .others-blocks__callback-call {
+        width: 150px;
+        height: 40px;
+    }
+    .callback-call__text {font-size: 12px;}
+}
+@media(max-width: 540px){
+    .site-size {
+        padding: 0 30px;
+    }
+    header {top: 10px;}
+    .others-blocks__callback-call {display: none;}
+}
+/*=======================adaptive======end=====================*/
