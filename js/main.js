@@ -102,4 +102,16 @@ $(document).ready(function () {
             hideMobileMenu('#mBtnBurger', '.mobile-dropdown');
         }
     });
+    $('#stoBtn').click(function () {
+        $('#sto').show(300);
+    });
+    $("#calendar").calendarWidget();
+    // ===click=not=in=target=close=calc=====
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+        var div = $("#sto"); // тут указываем ID элемента
+        if (!div.is(e.target) // если клик был не по нашему блоку
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
+            div.hide(300); // скрываем его
+        }
+    });
 });

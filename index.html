@@ -139,12 +139,43 @@
             </li>
         </ul>
     </div>
-<!--    =====popups===start====-->
-    <div class="popups__sto" id="sto">sto popup</div>
+
 </header>
 <main class="home">
     <section>
         <div class="home__container-title">
+            <!--    =====popups===start====-->
+            <div class="popups__sto" id="sto">
+                <div class="sto__title-row">
+                    <span class="title-row__text">Онлайн запись на СТО</span>
+                </div>
+                <form class="sto__form sto__content" action="" method="post" id="stoForm">
+                    <div class="form__left-part-sto">
+                        <div class="left-part-sto__col-title">
+                            <span class="col-title__text">Выберите дату и время</span>
+                        </div>
+                        <div class="left-part-sto__content">
+                            <div id="calendar">
+                                <p>Please enable Javascript to view this calendar.</p>
+                            </div>
+                            <div class="content__label-block">
+                                <label class="label-block__label" for="timeStart">
+                                    <span class="label__text">Желаемое время проведения работ</span>
+                                </label>
+                                <select class="label__select" id="timeStart" name="time_start">
+                                    <option value="8"><span>8:00</span></option>
+                                    <option value="9"><span>9:00</span></option>
+                                    <option value="10"><span>10:00</span></option>
+                                    <option value="11"><span>11:00</span></option>
+                                    <option value="12"><span>12:00</span></option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form__right-part-sto"></div>
+                </form>
+            </div>
             <div class="container-title__layer"></div>
             <div class="container-title__home-bg" style="background-image: url('css/pic/home-bg.jpg');"></div>
             <div class="container-title__home-content">
@@ -156,7 +187,7 @@
                         <span class="title-h4__text">В наличии сертифицированные масла и фильтры для каждого автомобиля.</span>
                     </h4>
                     <div class="center-block__row-btns">
-                        <a href="#" class="row-btns__link">
+                        <a href="#" id="stoBtn" class="row-btns__link">
                             <span class="link__text">Запись на сервис</span>
                         </a>
                         <a href="#" class="row-btns__link no-bg borders bt-mw-156">
@@ -189,6 +220,7 @@
 </main>
 <footer></footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/calendar.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
