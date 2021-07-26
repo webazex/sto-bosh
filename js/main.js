@@ -105,7 +105,7 @@ $(document).ready(function () {
     $('#stoBtn').click(function () {
         $('#sto').show(300);
     });
-    $("#calendar").calendarWidget();
+    $( "#datepicker" ).datepicker();
     // ===click=not=in=target=close=calc=====
     $(document).mouseup(function (e){ // событие клика по веб-документу
         var div = $("#sto"); // тут указываем ID элемента

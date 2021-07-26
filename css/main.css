@@ -436,7 +436,10 @@ main {
     color: white;
     text-decoration: none;
 }
-
+.content__calendar  {
+    padding: 20px;
+    background-color: white;
+}
 /*=========home--end--==========*/
 /*=====popups==start=======*/
 .popups__sto {
@@ -444,17 +447,190 @@ main {
     max-width: 1200px;
     width: 100%;
     height: 633px;
-    background: black;
-    backdrop-filter: blur(14px);
+    background: #000000c7;
+    /*backdrop-filter: blur(14px);*/
     z-index: 4;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     margin: 130px auto;
-    opacity: 75%;
+    /*opacity: 75%;*/
     border-radius: 5px;
 }
+.sto__form {
+
+}
+.form__left-part-sto {
+    max-width: 341px;
+    width: 100%;
+}
+.form__right-part-sto {
+    width: 100%;
+    max-width: 740px;
+}
+.sto__content {
+    display: flex;
+    justify-content: space-between;
+}
+.sto__title-row {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #23A6F0;
+}
+.title-row__text {
+    font-size: 25px;
+    color: white;
+    font-weight: 700;
+}
+.left-part-sto__content {
+    padding-left: 50px;
+}
+.left-part-sto__col-title, .label-block__label, .right-part-sto__col-title {
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+.col-title__text, .label__text {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+.content__label-block {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.label-block__label {padding: 0;}
+.label__select {
+    height: 43px;
+    border: 2px solid #23A6F0;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}
+.label__select option {
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    margin: 20px 0;
+}
+.right-part-sto__container-grid {
+    padding-right: 30px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+            'fio model'
+            'email phone'
+            'text text'
+            'text text';
+}
+.sto__form input {
+    height: 65px;
+    border: 2px solid #23A6F0;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: transparent;
+}
+.sto__form textarea {
+    background-color: transparent;
+    border: 2px solid #23a6f0;
+    border-radius: 15px;
+    padding: 20px 30px;
+    color: white;
+}
+.sto__form input::placeholder, .sto__form textarea::placeholder {
+    color: #ffffff;
+}
+.right-part-sto__col-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+.form__input-fio {
+    grid-area: fio;
+}
+.form__input-car-model {
+    grid-area: model;
+}
+.form__input-email {
+    grid-area: email;
+}
+.form__input-phone {grid-area: phone;}
+.form__textarea-text {
+    grid-area: text;
+}
+.sto__form .form__input-checkbox {display: none;height: auto;}
+.submit-text-row__checkbox-text label {
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    outline: none;
+    border: 2px solid #23a6f0;
+    padding: 2px;
+    background-color: transparent;
+}
+.form__input-checkbox:checked .submit-text-row__checkbox-text label {
+    background-color: #23a6f0;
+}
+/*=====datepicker==css==start======*/
+.ui-datapicker, .ui-datepicker-inline {
+    background-color: white;
+    border: none;
+}
+.ui-widget-header {
+    border: none;
+    background: white;
+}
+.ui-datepicker td {
+    padding: 0;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+.ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: black;
+}
+.ui-state-default.ui-state-hover {
+    color: white;
+    background: #23A6F0;
+}
+.ui-widget-header .ui-icon {background: none;}
+.ui-datepicker-next span.ui-icon, .ui-datepicker-prev span.ui-icon{
+    width: 6px;
+    height: 12px;
+    background-image: url("pic/arrow-sprite.png");
+    background-repeat: no-repeat;
+}
+.ui-datepicker-next span.ui-icon{
+    background-position: right;
+}
+.ui-datepicker-prev span.ui-icon{
+    background-position: left;
+}
+.ui-datepicker-next.ui-state-hover, .ui-datepicker-prev.ui-state-hover {
+    border: none;
+    background: white;
+}
+.ui-datepicker-next.ui-state-hover.ui-datepicker-next-hover,
+.ui-datepicker-prev.ui-state-hover.ui-datepicker-prev-hover{
+    border: none;
+    outline: none;
+    right: 2px;
+    top: 2px;
+}
+.ui-datepicker-prev.ui-state-hover.ui-datepicker-prev-hover {
+    left: 2px; right: unset;}
+/*=====datepicker==css==end========*/
 /*=====popups==end=======*/
 /*====service--classes--start=====*/
 .bt-mw-156 {max-width: 156px;}

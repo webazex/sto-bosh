@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
           rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
@@ -155,9 +156,7 @@
                             <span class="col-title__text">Выберите дату и время</span>
                         </div>
                         <div class="left-part-sto__content">
-                            <div id="calendar">
-                                <p>Please enable Javascript to view this calendar.</p>
-                            </div>
+                            <div id="datepicker"></div>
                             <div class="content__label-block">
                                 <label class="label-block__label" for="timeStart">
                                     <span class="label__text">Желаемое время проведения работ</span>
@@ -170,10 +169,46 @@
                                     <option value="12"><span>12:00</span></option>
                                 </select>
                             </div>
+                            <div class="content__label-block">
+                                <label class="label-block__label" for="timeForCall">
+                                    <span class="label__text">Желаемое время для звонка</span>
+                                </label>
+                                <select class="label__select" id="timeForCall" name="timeForCall">
+                                    <option value="8"><span>8:00 - 9:00</span></option>
+                                    <option value="9"><span>10:00 - 11:00</span></option>
+                                    <option value="10"><span>11:00 - 12:00</span></option>
+                                    <option value="11"><span>12:00 - 13:00</span></option>
+                                    <option value="12"><span>13:00 - 14:00</span></option>
+                                </select>
+                            </div>
 
                         </div>
                     </div>
-                    <div class="form__right-part-sto"></div>
+                    <div class="form__right-part-sto">
+                        <div class="right-part-sto__col-title">
+                            <span class="col-title__text">Ваша контактная информация</span>
+                        </div>
+                        <div class="right-part-sto__container-grid">
+                            <input type="text" name="fio" class="form__input-fio" required="required">
+                            <input type="text" name="car_model" class="form__input-car-model" required="required">
+                            <input type="email" name="email" class="form__input-email" required="required">
+                            <input type="tel" name="phone" class="form__input-phone" required="required">
+                            <textarea name="text" class="form__textarea-text" required="required"></textarea>
+                        </div>
+                        <div class="right-part-sto__submit-text-row">
+                            <div class="submit-text-row__checkbox-text">
+                                <label>
+                                    <input type="checkbox" name="agreement" class="form__input-checkbox">
+                                </label>
+                                <span>Я даю свое согласие на обработку указанных мною персональных данных*
+</span>
+                            </div>
+
+                            <button type="submit" class="submit-text-row__btn-submit">
+                                <span>Заказать звонок</span>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="container-title__layer"></div>
@@ -220,7 +255,8 @@
 </main>
 <footer></footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="js/calendar.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/main.js"></script>
+<script src="js/datepicker-ru.js"></script>
 </body>
 </html>
