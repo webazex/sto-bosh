@@ -539,6 +539,9 @@ main {
     box-sizing: border-box;
     border-radius: 15px;
     background-color: transparent;
+    padding-left: 30px;
+    outline: none;
+    color: white;
 }
 .sto__form textarea {
     background-color: transparent;
@@ -549,10 +552,20 @@ main {
 }
 .sto__form input::placeholder, .sto__form textarea::placeholder {
     color: #ffffff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
 }
 .right-part-sto__col-title {
     padding-left: 0;
     padding-right: 0;
+}
+.right-part-sto__submit-text-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
 }
 .form__input-fio {
     grid-area: fio;
@@ -567,18 +580,44 @@ main {
 .form__textarea-text {
     grid-area: text;
 }
-.sto__form .form__input-checkbox {display: none;height: auto;}
+.sto__form .checkbox-text__input-checkbox {display: none;height: 1px;}
 .submit-text-row__checkbox-text label {
     width: 25px;
     height: 25px;
     border-radius: 25px;
     outline: none;
     border: 2px solid #23a6f0;
-    padding: 2px;
     background-color: transparent;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.form__input-checkbox:checked .submit-text-row__checkbox-text label {
+label span {
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50%;
+}
+.checkbox-text__input-checkbox:checked + label span{
     background-color: #23a6f0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.submit-text-row__btn-submit {
+    max-width: 305px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /*=====datepicker==css==start======*/
 .ui-datapicker, .ui-datepicker-inline {
@@ -630,6 +669,14 @@ main {
 }
 .ui-datepicker-prev.ui-state-hover.ui-datepicker-prev-hover {
     left: 2px; right: unset;}
+.ui-datepicker-today, .ui-datepicker-today .ui-state-active {
+    color: white;
+    background: #23A6F0;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+    border: none;
+}
 /*=====datepicker==css==end========*/
 /*=====popups==end=======*/
 /*====service--classes--start=====*/

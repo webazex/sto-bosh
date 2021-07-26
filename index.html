@@ -189,17 +189,19 @@
                             <span class="col-title__text">Ваша контактная информация</span>
                         </div>
                         <div class="right-part-sto__container-grid">
-                            <input type="text" name="fio" class="form__input-fio" required="required">
-                            <input type="text" name="car_model" class="form__input-car-model" required="required">
-                            <input type="email" name="email" class="form__input-email" required="required">
-                            <input type="tel" name="phone" class="form__input-phone" required="required">
-                            <textarea name="text" class="form__textarea-text" required="required"></textarea>
+                            <input type="text" name="fio" class="form__input-fio" required="required" placeholder="Имя и фамилия">
+                            <input type="text" name="car_model" class="form__input-car-model" required="required" placeholder="Модель авто">
+                            <input type="email" name="email" class="form__input-email" required="required" placeholder="Электронный адрес">
+                            <input type="tel" name="phone" class="form__input-phone" required="required" placeholder="Номер телефона">
+                            <textarea name="text" class="form__textarea-text" required="required" placeholder="Описание неисправности"></textarea>
                         </div>
                         <div class="right-part-sto__submit-text-row">
                             <div class="submit-text-row__checkbox-text">
-                                <label>
-                                    <input type="checkbox" name="agreement" class="form__input-checkbox">
+                                <input type="checkbox" name="agreement" class="checkbox-text__input-checkbox" id="agree">
+                                <label for="agree">
+                                    <span></span>
                                 </label>
+
                                 <span>Я даю свое согласие на обработку указанных мною персональных данных*
 </span>
                             </div>
