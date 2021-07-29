@@ -20,7 +20,7 @@ header {
     z-index: 9;
     top: 31px;
 }
-
+footer {background-color: #131D3B;}
 h1, h1 > span, h1 span {
     font-weight: 800;
     font-size: 58px;
@@ -91,13 +91,13 @@ main {
     align-items: center;
 }
 
-.header__logo-block {
+.header__logo-block, .footer-content__logo-block {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.header__logo-block img {
+.header__logo-block img, .footer-content__logo-block img {
     width: 83px;
     height: 85px;
     display: block;
@@ -105,7 +105,7 @@ main {
     margin-bottom: 0;
 }
 
-.header__logo-block span {
+.header__logo-block span, .footer-content__logo-block span {
     font-weight: 600;
     color: #ffffff;
     font-size: 20px;
@@ -671,8 +671,83 @@ main {
 .grid__item img, .grid__item video {width: 100%;}
 
 /*============reviews=section=start============*/
+.site-size__reviews {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.reviews__item {
+    max-width: 450px;
+    width: auto;
+    position: relative;
+    padding: 30px 40px;
+    background-color: #23A6F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.item__title-review .title-h3__text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+}
+.title-h6__text {
+    color: #ffffff;}
+.reviews__item img{
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    display: block;
+    left: -43px;
+}
+.item__stars-row {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+}
+.reviews__item p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+}
+.stars-row__star {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-image: url("pic/gold-s.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.grey-star {
+    background-image: url("pic/t-star.png");
+}
 /*color: #FFFFFF;*/
 /*============reviews=section=end==============*/
+/*============footer=section=start==============*/
+.footer-container {
+    padding: 50px;
+}
+.container__footer-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+}
+/*============footer=section=end================*/
+
+
 /*=====popups==start=======*/
 .popups__sto {
     position: fixed;
@@ -998,11 +1073,11 @@ main {
         padding: 0 60px;
     }
 
-    .header__logo-block span {
+    .header__logo-block span, .footer-content__logo-block span{
         font-size: 16px;
     }
 
-    .header__logo-block img {
+    .header__logo-block img, .footer-content__logo-block img {
         width: auto;
         height: 40px;
     }
