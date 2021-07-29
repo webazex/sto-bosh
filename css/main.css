@@ -49,7 +49,21 @@ h4, h4 > span, h4 span {
     text-align: center;
     letter-spacing: 0.2px;
 }
-
+h5, h5 > span, h5 span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+}
+h6, h6 > span, h6 span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+}
 main {
     width: 100%;
 }
@@ -441,6 +455,224 @@ main {
     background-color: white;
 }
 /*=========home--end--==========*/
+/*==========promotions=section=start====*/
+.content__section-prs {
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-prs__item {
+    width: 100%;
+    max-width: 320px;
+    bottom: 50px;
+    padding: 24px 40px;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 2;
+}
+/*==========promotions=section=end=====*/
+
+/*==========service=section=start=====*/
+.slider-section__title {
+    width: 100%;
+    text-align: center;
+}
+.title__text {
+    color: black;
+}
+.site-size__slider-section {
+    padding: 90px 0;
+}
+.slider-section__slider {
+    margin-top: 40px;
+    width: 100%;
+}
+.slider__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slider__item img {
+    margin: 0 auto 30px auto;
+    display: block;
+}
+.slider__item h5 {
+    color: #252B42;
+    margin-bottom: 10px;
+}
+.slider__item p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #737373;
+}
+
+/*==========service=section=end=======*/
+
+/*=======callback=form=start======*/
+.site-size__callback-form {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(270deg, #00C2FF -1.04%, #004788 100%);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 44px 30px;
+}
+.site-size__callback-form form{
+    max-width: 563px;
+    width: auto;
+    height: 72px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+}
+.callback-form__text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+}
+.site-size__callback-form form input {
+    background-color: white;
+    outline: none;
+    border: none;
+    padding: 20px 0 20px 15px;
+}
+.site-size__callback-form form input::placeholder {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    text-align: left;
+    letter-spacing: 0.2px;
+    color: #AA9595;
+}
+.site-size__callback-form form input[type='text'] {
+    border-right: 1px solid #D9D8D8;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.site-size__callback-form form button[type='submit'] {
+    width: 134px;
+    height: 100%;
+    background: #035E85;
+    border-radius: 0px 10px 10px 0px;
+    outline: none;
+    border: none;
+}
+.site-size__callback-form form button[type='submit'] span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+}
+/*=======callback=form=end========*/
+/*=======advantages=section=start========*/
+.site-size__advantages-content {
+    width: 100%;
+    padding-top: 50px;
+}
+.advantages-content__row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 283px));
+    grid-template-rows: auto;
+    justify-content: space-between;
+}
+.row__adv-item {}
+.adv-item__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #131D3B;
+}
+.row__adv-item p {
+    margin-top: 24px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #131D3B;
+}
+.adv-item__number {
+    top: -30%;
+    /*position: absolute;*/
+    font-style: normal;
+    font-weight: 800;
+    font-size: 110px;
+    line-height: 134px;
+    opacity: 0.3;
+    -webkit-text-stroke: thin;
+    -webkit-text-stroke-color: #23A6F0;
+    -webkit-text-stroke-width: 2px;
+    color: transparent;
+    display: block;
+}
+/*=======advantages=section=end==========*/
+.site-size__content-snake {
+    /*padding-top: 100px;*/
+    padding-bottom: 50px;
+}
+.content-snake__title {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.title-h2__text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+    color: #131D3B;
+}
+.content-snake__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(286px, 1fr));
+    grid-column-gap: 19px;
+    grid-auto-rows: minmax(315px, auto);
+    grid-row-gap: 50px;
+    align-items: center;
+}
+.grid__item:nth-child(1), .grid__item:nth-child(4n), .grid__item:nth-child(4n+1) {
+    grid-column: span 2;
+    background: #131D3B;
+    border-radius: 5px;
+    padding: 17px 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /*justify-content: space-between;*/
+    justify-content: center;
+    height: 100%;
+    overflow-y: auto;
+}
+.grid__item:nth-child(1) > p, .grid__item:nth-child(4n) > p, .grid__item:nth-child(4n+1) > p {
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 15px;
+    margin: auto 0;
+}
+.grid__item img, .grid__item video {width: 100%;}
+
+/*============reviews=section=start============*/
+/*color: #FFFFFF;*/
+/*============reviews=section=end==============*/
 /*=====popups==start=======*/
 .popups__sto {
     position: fixed;
@@ -457,6 +689,7 @@ main {
     margin: 130px auto;
     /*opacity: 75%;*/
     border-radius: 5px;
+    overflow-y: auto;
 }
 .sto__form {
 
@@ -581,6 +814,11 @@ main {
     grid-area: text;
 }
 .sto__form .checkbox-text__input-checkbox {display: none;height: 1px;}
+.submit-text-row__checkbox-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 .submit-text-row__checkbox-text label {
     width: 25px;
     height: 25px;
@@ -592,8 +830,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
 }
-label span {
+.submit-text-row__checkbox-text label span {
     width: 15px;
     height: 15px;
     background-color: transparent;
@@ -603,6 +842,17 @@ label span {
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     border-radius: 50%;
+}
+.submit-text-row__checkbox-text span {
+    max-width: 347px;
+    width: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: left;
+    display: block;
 }
 .checkbox-text__input-checkbox:checked + label span{
     background-color: #23a6f0;
@@ -619,6 +869,29 @@ label span {
     justify-content: center;
     align-items: center;
 }
+.submit-text-row__btn-submit {
+    max-width: 305px;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #23A6F0;
+    border-radius: 5px;
+}
+.submit-text-row__btn-submit span {
+    color: #fff;
+}
+.submit-text-row__btn-submit span:after {
+    content: '→';
+    color: white;
+    margin-left: 15px;
+    width: 12px;
+    height: 10px;
+}
+
 /*=====datepicker==css==start======*/
 .ui-datapicker, .ui-datepicker-inline {
     background-color: white;
@@ -686,6 +959,26 @@ label span {
 /*====service--classes--end=====*/
 /*=======================adaptive======start===================*/
 @media (max-width: 1260px) {
+    .sto__content {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 30px;
+    }
+    .popups__sto {height: auto;}
+    .form__left-part-sto, .form__right-part-sto {
+        max-width: none;
+        width: 100%;
+    }
+    .left-part-sto__content {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .right-part-sto__container-grid {
+        width: 100%;
+        padding: 0;
+    }
     .others-blocks__menu {
         order: 1;
         margin-left: 5px;
