@@ -91,13 +91,13 @@ main {
     align-items: center;
 }
 
-.header__logo-block, .footer-content__logo-block {
+.header__logo-block, .col-f__logo-block {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.header__logo-block img, .footer-content__logo-block img {
+.header__logo-block img, .col-f__logo-block img {
     width: 83px;
     height: 85px;
     display: block;
@@ -105,7 +105,7 @@ main {
     margin-bottom: 0;
 }
 
-.header__logo-block span, .footer-content__logo-block span {
+div.header__logo-block span, div.col-f__logo-block span {
     font-weight: 600;
     color: #ffffff;
     font-size: 20px;
@@ -742,9 +742,49 @@ main {
 .container__footer-content {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    justify-content: space-between;
     grid-template-rows: auto;
 }
+.container__footer-content > span, .container__footer-content span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #F2F3F5;
+    opacity: 0.75;
+}
+.col-f__logo-block span {opacity: 1;}
+.col-f__adress {
+    margin-top: 34px;
+}
+.col-f__workstime-block {
+    margin-top: 10px;
+}
+.col-f__mail {
+    margin-top: 20px;
+}
+.col-f__phones {
+    margin-top: 15px;
+}
+.footer-container__col-s {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 40px;
+    justify-content: space-between;
+}
+.col-s__menu-footer, .col-s__links-footer {
+    display: flex;
+    flex-direction: column;
+}
+.col-s__links-footer {grid-column-start: 3;}
+.col-s__copywrite-block {
+    grid-column: span 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.menu-footer__link,.links-footer__link {margin: 15px 0;}
 /*============footer=section=end================*/
 
 
@@ -1073,11 +1113,11 @@ main {
         padding: 0 60px;
     }
 
-    .header__logo-block span, .footer-content__logo-block span{
+    div.header__logo-block span, div.col-f__logo-block span{
         font-size: 16px;
     }
 
-    .header__logo-block img, .footer-content__logo-block img {
+    .header__logo-block img, .col-f__logo-block img {
         width: auto;
         height: 40px;
     }
