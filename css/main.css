@@ -9,8 +9,58 @@
     font-weight: 500;
     font-style: normal;
     font-size: 15px;
+    scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+    width: 5px; /* ширина для вертикального скролла */
+    height: auto; /* высота для горизонтального скролла */
+    background-color: white;
 }
 
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 50px;
+    box-shadow: inset 1px 1px 10px grey;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: grey;
+}
+
+/* Стрелки */
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    background:
+            linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+    background:
+            linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+    background:
+            linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
 header {
     position: fixed;
     width: 100%;
@@ -63,6 +113,13 @@ h6, h6 > span, h6 span {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.2px;
+}
+p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 32px;
+    color: #131D3B;
 }
 main {
     width: 100%;
@@ -587,7 +644,7 @@ div.header__logo-block span, div.col-f__logo-block span {
 }
 .advantages-content__row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(auto, 283px));
+    grid-template-columns: repeat(auto-fill, minmax(auto, 283px));
     grid-template-rows: auto;
     justify-content: space-between;
 }
@@ -794,8 +851,10 @@ div.header__logo-block span, div.col-f__logo-block span {
     max-width: 1200px;
     width: 100%;
     height: 633px;
+    /*height: auto;*/
     background: #000000c7;
-    /*backdrop-filter: blur(14px);*/
+    backdrop-filter: blur(14px);
+    padding-bottom: 20px;
     z-index: 4;
     left: 0;
     right: 0;
@@ -1074,12 +1133,68 @@ div.header__logo-block span, div.col-f__logo-block span {
 /*====service--classes--end=====*/
 /*=======================adaptive======start===================*/
 @media (max-width: 1260px) {
+    h1, h1 > span, h1 span {
+        font-weight: 700;
+        font-size: 55px;
+        line-height: 60px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h2, h2 > span, h2 span {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 40px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h3, h3 > span, h3 span {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h4, h4 > span, h4 span {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h5, h5 > span, h5 span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 0.1px;
+    }
+    h6, h6 > span, h6 span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        letter-spacing: 0.1px;
+    }
+    p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 32px;
+        color: #131D3B;
+    }
     .sto__content {
         flex-direction: column;
         justify-content: flex-start;
         padding: 30px;
     }
-    .popups__sto {height: auto;}
+    .popups__sto {
+        max-width: 980px;
+        height: auto;
+        bottom: unset;
+    }
+    .section-prs__item {max-width: 250px;}
+    .section-prs__item img {width: 55px;}
     .form__left-part-sto, .form__right-part-sto {
         max-width: none;
         width: 100%;
@@ -1089,6 +1204,16 @@ div.header__logo-block span, div.col-f__logo-block span {
         padding: 0;
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
+    }
+    .hasDatepicker {
+        justify-content: center;
+        display: flex;
+    }
+    .left-part-sto__col-title, .label-block__label, .right-part-sto__col-title {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
     }
     .right-part-sto__container-grid {
         width: 100%;
@@ -1106,9 +1231,147 @@ div.header__logo-block span, div.col-f__logo-block span {
     .menu__burger {
         display: flex;
     }
+    .content-snake__grid {grid-template-columns: repeat(2, minmax(286px, 1fr));}
+    .reviews__item {max-width: 350px;}
 }
-
+@media(max-width: 1024px){
+    h1, h1 > span, h1 span {
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 55px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h2, h2 > span, h2 span {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 35px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h3, h3 > span, h3 span {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h4, h4 > span, h4 span {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h5, h5 > span, h5 span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 0.1px;
+    }
+    h6, h6 > span, h6 span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        letter-spacing: 0.1px;
+    }
+    p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 32px;
+        color: #131D3B;
+    }
+    .content__section-prs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 250px);
+        grid-gap: 10px;
+        grid-auto-rows: auto;
+        height: auto;
+        padding: 30px 0;
+    }
+    .section-prs__item {
+        bottom: unset;
+        margin-bottom: 10px;
+    }
+    .section-prs__item:last-child {
+        margin-bottom: 0;
+    }
+    .site-size__callback-form {
+        flex-direction: column;
+    }
+    .callback-form__text {
+        margin-bottom: 10px;
+    }
+    .site-size__reviews {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .reviews__item {
+        max-width: 450px;
+        margin-bottom: 50px;
+        align-items: center;
+    }
+    .reviews__item img {
+        left: unset;
+        bottom: 88%;
+    }
+    .reviews__item:last-child {margin-bottom: 0;}
+}
 @media (max-width: 768px) {
+    h1, h1 > span, h1 span {
+        font-weight: 700;
+        font-size: 55px;
+        line-height: 60px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h2, h2 > span, h2 span {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 40px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h3, h3 > span, h3 span {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h4, h4 > span, h4 span {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 0.2px;
+    }
+    h5, h5 > span, h5 span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 0.1px;
+    }
+    h6, h6 > span, h6 span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+        letter-spacing: 0.1px;
+    }
+    p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 32px;
+        color: #131D3B;
+    }
     .site-size {
         padding: 0 60px;
     }
