@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STO home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<header>
+    <div class="header-bg">
+        <div class="site-size">
+            <div class="site-size__header">
+                <div class="header__logo-block">
+                    <img src="img/logo.png" alt="">
+                    <span>Bosch Service</span>
+                </div>
+                <div class="header__others-blocks">
+                    <div class="others-blocks__menu">
+                        <button class="menu__burger" id="mBtnBurger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <ul class="menu__container">
+                            <li class="container__menu-item has-subitem">
+                                <div class="menu-item__item">
+                                    <span>Услуги</span>
+                                </div>
+                                <div class="menu-item__submenu">
+                                    <ul class="submenu__list">
+                                        <li class="list__container">
+                                            <div class="container__item">
+                                                <span>Диагностика перед покупкой</span>
+                                            </div>
+                                        </li>
+                                        <li class="list__container">
+                                            <div class="container__item">
+                                                <span>Диагностика перед покупкой</span>
+                                            </div>
+                                        </li>
+                                        <li class="list__container">
+                                            <div class="container__item">
+                                                <span>Диагностика перед покупкой</span>
+                                            </div>
+                                        </li>
+                                        <li class="list__container">
+                                            <div class="container__item">
+                                                <span>Диагностика перед покупкой</span>
+                                            </div>
+                                        </li>
+                                        <li class="list__container">
+                                            <div class="container__item">
+                                                <span>Диагностика перед покупкой</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                            <li class="container__menu-item">
+                                <div class="menu-item__item">
+                                    <span>Автозапчасти BOSH</span>
+                                </div>
+                            </li>
+                            <li class="container__menu-item">
+                                <div class="menu-item__item">
+                                    <span>Цены</span>
+                                </div>
+                            </li>
+                            <li class="container__menu-item">
+                                <div class="menu-item__item">
+                                    <span>Контакты</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="others-blocks__callback-call">
+                        <span class="callback-call__text">Заказать звонок</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-dropdown">
+        <ul class="mobile-dropdown__mobile-menu">
+            <li class="mobile-menu__container-item has-subitem">
+                <div class="container-item__item">
+                    <span>Услуги</span>
+                </div>
+                <ul class="container-item__submenu">
+                    <li class="submenu__container">
+                        <div class="container__item">
+                            <span>Диагностика перед покупкой</span>
+                        </div>
+                    </li>
+                    <li class="submenu__container">
+                        <div class="container__item">
+                            <span>Ремонт ходовой</span>
+                        </div>
+                    </li>
+                    <li class="submenu__container">
+                        <div class="container__item">
+                            <span>АКП</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="mobile-menu__container-item">
+                <div class="container-item__item">
+                    <span>Услуги</span>
+                </div>
+            </li>
+            <li class="mobile-menu__container-item has-subitem">
+                <div class="container-item__item">
+                    <span>Услуги</span>
+                </div>
+                <ul class="container-item__submenu">
+                    <li class="submenu__container">
+                        <div class="container__item">
+                            <span>Диагностика перед покупкой</span>
+                        </div>
+                    </li>
+                    <li class="submenu__container">
+                        <div class="container__item">
+                            <span>Ремонт ходовой</span>
+                        </div>
+                    </li>
+                    <li class="submenu__container">
+                        <div class="container__item">
+                            <span>АКП</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</header>
+<main class="home">
+    <section>
+        <div class="home__container-title">
+            <!--    =====popups===start====-->
+            <div class="popups__sto" id="sto">
+                <div class="sto__title-row">
+                    <span class="title-row__text">Онлайн запись на СТО</span>
+                </div>
+                <form class="sto__form sto__content" action="" method="post" id="stoForm">
+                    <div class="form__left-part-sto">
+                        <div class="left-part-sto__col-title">
+                            <span class="col-title__text">Выберите дату и время</span>
+                        </div>
+                        <div class="left-part-sto__content">
+                            <div id="datepicker"></div>
+                            <div class="content__label-block">
+                                <label class="label-block__label" for="timeStart">
+                                    <span class="label__text">Желаемое время проведения работ</span>
+                                </label>
+                                <select class="label__select" id="timeStart" name="time_start">
+                                    <option value="8"><span>8:00</span></option>
+                                    <option value="9"><span>9:00</span></option>
+                                    <option value="10"><span>10:00</span></option>
+                                    <option value="11"><span>11:00</span></option>
+                                    <option value="12"><span>12:00</span></option>
+                                </select>
+                            </div>
+                            <div class="content__label-block">
+                                <label class="label-block__label" for="timeForCall">
+                                    <span class="label__text">Желаемое время для звонка</span>
+                                </label>
+                                <select class="label__select" id="timeForCall" name="timeForCall">
+                                    <option value="8"><span>8:00 - 9:00</span></option>
+                                    <option value="9"><span>10:00 - 11:00</span></option>
+                                    <option value="10"><span>11:00 - 12:00</span></option>
+                                    <option value="11"><span>12:00 - 13:00</span></option>
+                                    <option value="12"><span>13:00 - 14:00</span></option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form__right-part-sto">
+                        <div class="right-part-sto__col-title">
+                            <span class="col-title__text">Ваша контактная информация</span>
+                        </div>
+                        <div class="right-part-sto__container-grid">
+                            <input type="text" name="fio" class="form__input-fio" required="required"
+                                   placeholder="Имя и фамилия">
+                            <input type="text" name="car_model" class="form__input-car-model" required="required"
+                                   placeholder="Модель авто">
+                            <input type="email" name="email" class="form__input-email" required="required"
+                                   placeholder="Электронный адрес">
+                            <input type="tel" name="phone" class="form__input-phone" required="required"
+                                   placeholder="Номер телефона">
+                            <textarea name="text" class="form__textarea-text" required="required"
+                                      placeholder="Описание неисправности"></textarea>
+                        </div>
+                        <div class="right-part-sto__submit-text-row">
+                            <div class="submit-text-row__checkbox-text">
+                                <input type="checkbox" name="agreement" class="checkbox-text__input-checkbox"
+                                       id="agree">
+                                <label for="agree">
+                                    <span></span>
+                                </label>
+
+                                <span>Я даю свое согласие на обработку указанных мною персональных данных*
+</span>
+                            </div>
+
+                            <button type="submit" class="submit-text-row__btn-submit">
+                                <span>Заказать звонок</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container-title__layer"></div>
+            <div class="container-title__services-bg" style="background-image: url('css/pic/home-bg.jpg');"></div>
+            <div class="container-title__services-content">
+                <div class="home-content__center-block">
+                    <h1 class="center-block__title-h1">
+                        <span class="title-h1__text">BOSCH Auto Service - “Центр Херон”</span>
+                    </h1>
+                    <h4 class="center-block__title-h4">
+                        <span class="title-h4__text">В наличии сертифицированные масла и фильтры для каждого автомобиля.</span>
+                    </h4>
+                    <div class="center-block__row-btns">
+                        <a href="#" id="stoBtn" class="row-btns__link">
+                            <span class="link__text">Запись на сервис</span>
+                        </a>
+                        <a href="#" class="row-btns__link no-bg borders bt-mw-156">
+                            <span class="link__text">Детальнее</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="container__footer-content">
+            <div class="footer-content__col-f">
+                <div class="col-f__logo-block">
+                    <img src="img/logo.png" alt="">
+                    <span>Bosch Service</span>
+                </div>
+                <div class="col-f__adress">
+                    <span class="adress__text">г.Херсон, Николаевское шоссе, 54</span>
+                </div>
+                <div class="col-f__workstime-block">
+            <span class="workstime-block__text">
+                График работы:<br>
+                пн-пт: 8.00 — 19.00<br>
+                сб: 9.00 — 15.00<br>
+            </span>
+                </div>
+                <div class="col-f__mail">
+                    <a href="mailto:admin@bmwcentre.ks.ua">
+                        <span class="mail__text">admin@bmwcentre.ks.ua</span>
+                    </a>
+                </div>
+                <div class="col-f__phones">
+                    <a href="tel:+380552416000">
+                        <span class="phones__text">+38(0552)-416-000</span>
+                    </a>
+                    <a href="tel:+380503186001">
+                        <span class="phones__text">+38(050)-318-6001</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-container__col-s">
+                <div class="col-s__menu-footer">
+                    <a href="#" class="menu-footer__link">
+                        <span class="link__text-menu-f">Услуги</span>
+                    </a>
+                    <a href="#" class="menu-footer__link">
+                        <span class="link__text-menu-f">Автозапчасти BOSCH</span>
+                    </a>
+                    <a href="#" class="menu-footer__link">
+                        <span class="link__text-menu-f">Цены</span>
+                    </a>
+                    <a href="#" class="menu-footer__link">
+                        <span class="link__text-menu-f">Контакты</span>
+                    </a>
+                </div>
+                <div class="col-s__links-footer">
+                    <a href="#" class="links-footer__link">
+                        <span class="link__text-menu-f">Услуги</span>
+                    </a>
+                    <a href="#" class="links-footer__link">
+                        <span class="link__text-menu-f">Автозапчасти BOSCH</span>
+                    </a>
+                    <a href="#" class="links-footer__link">
+                        <span class="link__text-menu-f">Цены</span>
+                    </a>
+                    <a href="#" class="links-footer__link">
+                        <span class="link__text-menu-f">Контакты</span>
+                    </a>
+                </div>
+                <div class="col-s__copywrite-block">
+                    <span class="copywrite-block__text">© 2021 BOSCH Auto Service. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="footer-container__col-t">
+            <span class="col-t__text">
+                В автосервисе возможен расчет карточками Visa и MasterCard
+            </span>
+                <div class="col-t__img-row">
+                    <img src="img/visa.png" alt="">
+                    <img src="img/masterCard.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/main.js"></script>
+<script src="js/datepicker-ru.js"></script>
+</body>
+</html>
