@@ -543,9 +543,17 @@ div.header__logo-block span, div.col-f__logo-block span {
 /*=========home--end--==========*/
 /*===========contacts=========*/
 .contact-bg {
+    position: absolute;
+    height: 100%;
     width: 100%;/*h640*/
     background: linear-gradient(180deg, #4A99D3 -24.57%, rgba(74, 153, 211, 0) 76.31%),
     linear-gradient(0deg, #FFFFFF, #FFFFFF);
+}
+.contact__content {
+    max-width: 1170px;
+    width: 100%;
+    height: 640px;
+    margin: 0 auto
 }
 /*==========promotions=section=start====*/
 .content__section-prs {
