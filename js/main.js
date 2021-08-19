@@ -148,4 +148,18 @@ $(document).ready(function () {
             // instead of a settings object
         ]
     });
+    $('.droplist__item-row').click(function () {
+        let rowIcon = $(this).children('.item-row').children('.item-row__service-pack').find('.service-pack__icon span:last-child');
+        let thisProps = $(this).find('.item-row__grid-service-prop');
+        if(thisProps.hasClass('open')){
+            thisProps.removeClass('open');
+            rowIcon.css({'transform': 'rotate(0deg)'});
+        }else{
+            $('.item-row__grid-service-prop').not(thisProps).removeClass('open');
+            $('.item-row__service-pack').not(thisProps).find('.service-pack__icon span:last-child').css({'transform': 'rotate(0deg)'});
+            thisProps.addClass('open');
+            rowIcon.css({'transform': 'rotate(90deg)'});
+        }
+
+    })
 });

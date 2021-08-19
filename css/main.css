@@ -1467,11 +1467,112 @@ div.header__logo-block span, div.col-f__logo-block span {
     width: 10px;
     height: 10px;
 }
+/*===================prices===start==========*/
+.prices .services-content__center-block {
+    max-width: 1028px;
+    width: 100%;
+}
+.prices .center-block__title-h1 {
+    max-width: unset;
+    width: 100%;
+}
+.site-size__service-pack-content {
+
+}
+.droplist__item-row {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.item-row__service-pack {
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.droplist__item-row:first-child {border-top: none;}
+.service-pack__text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    color: #F2F3F5;
+}
+.service-pack__icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.service-pack__icon span {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    display: block;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+}
+.service-pack__icon span:last-child {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+.item-row__grid-service-prop {
+    display: none;
+    /*display: grid;*/
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    grid-auto-rows: auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 70px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.grid-service-prop__title, .grid-service-prop__desc, .grid-service-prop__price {
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+.grid-service-prop__title span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #F2F3F5;
+}
+.grid-service-prop__desc p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+.grid-service-prop__price {
+    justify-content: flex-end;
+}
+.grid-service-prop__price span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+.grid-service-prop__price span:first-child {
+    margin-right: 10px;
+}
+/*===================prices===end============*/
     /*====service--classes--start=====*/
 .bt-mw-156 {max-width: 156px;}
 .no-bg {background: transparent;}
 .borders {border: 1px solid #FFFFFF;}
+.open {
+    display: grid;
+}
+
 /*====service--classes--end=====*/
+
 /*=======================adaptive======start===================*/
 @media (max-width: 1260px) {
     h1, h1 > span, h1 span {
@@ -1618,6 +1719,7 @@ div.header__logo-block span, div.col-f__logo-block span {
         margin: 0;
     }
     .data__item {font-size: 14px;}
+    .prices .services-content__center-block {max-width: 768px;}
 }
 @media(min-width: 1200px) {
     .container-form-left-img__form form label input {height: 45px; margin-bottom: 0;}
@@ -1775,6 +1877,21 @@ div.header__logo-block span, div.col-f__logo-block span {
         padding: 15px;
     }
     .info-block__adress, .phone-block__item, .info-block__mail {font-size: 16px;}
+    .prices .services-content__center-block {max-width: 540px;}
+    .service-pack__text {
+        font-weight: 400;
+        font-size: 20px;
+    }
+    .grid-service-prop__title span {
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .grid-service-prop__desc p {
+        font-size: 14px;
+    }
+    .grid-service-prop__price span {
+        font-size: 18px;
+    }
 }
 @media(max-width: 980px){
     .site-size {padding: 0 30px;}
@@ -2007,6 +2124,13 @@ div.header__logo-block span, div.col-f__logo-block span {
     .data__item {
         font-size: 12px;
     }
+    .grid-service-prop__desc {
+        grid-column: span 2;
+    }
+    .grid-service-prop__price {
+        grid-column: span 3;
+        justify-content: center;
+    }
 }
 @media (max-width: 540px) {
     input::placeholder, textarea::placeholder {
@@ -2038,6 +2162,12 @@ div.header__logo-block span, div.col-f__logo-block span {
     }
     .content__grid-persons {
         grid-template-columns: minmax(200px, 1fr);
+    }
+    .grid-service-prop__title,
+    .grid-service-prop__desc,
+    .grid-service-prop__price {
+        grid-column: span 3;
+        justify-content: center;
     }
 }
 /*=======================adaptive======end=====================*/
