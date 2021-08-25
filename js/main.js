@@ -161,5 +161,80 @@ $(document).ready(function () {
             rowIcon.css({'transform': 'rotate(90deg)'});
         }
 
-    })
+    });
+    $('.btn-submit').click(function (e) {
+        e.preventDefault();
+        var url = $(this).closest("form").attr('data-sender');
+        var idForm = $(this).closest("form").attr('id');
+        var thisBtn = $(this);
+        // var DefaultBg = thisBtn.css('background-color');
+        var DefaultBg = '#2878EB';
+        var DefaultText = thisBtn.children('span').text();
+        var thisInputStatus = [];
+        $(this).closest('form').find('input[required="required"]').each(function () {
+
+            if($(this).val() !== ''){
+                thisInputStatus.push(true);
+            }else{
+                thisInputStatus.push(false);
+            }
+        });
+        var verifyInputs = true;
+        $.each(thisInputStatus, function () {
+            if(this == false){
+                verifyInputs = false;
+            }
+        });
+        if(verifyInputs === false){
+            thisBtn.css({'background-color':'black'});
+            thisBtn.children('span').text('Не все поля заполнены');
+            thisBtn.attr('disabled', "disabled");
+            setTimeout(function () {
+                thisBtn.css({'background-color':DefaultBg});
+                thisBtn.children('span').text(DefaultText);
+                thisBtn.removeAttr('disabled', "disabled");
+            }, 3000);
+        }else{
+            sendAjaxForm(url, idForm);
+            // $('.btn-submit').css({'background-color': '#2878EB'});
+            // thisBtn.css({'background-color':DefaultBg});
+            thisBtn.children('span').text(DefaultText);
+            thisBtn.removeAttr('disabled', "disabled");
+            $(thisBtn).closest('form').find('input[required="required"]').each(function () {
+                $(this).val('');
+                $(this).text('');
+            })
+        }
+
+    });
+    function sendAjaxForm(url, idForm) {
+        //console.log((JsonData));
+        $.ajax({
+            url:     url, //url страницы (action_ajax_form.php)
+            type:     "POST", //метод отправки
+            dataType: "html", //формат данных
+            data: $("#"+idForm).serialize(),  // Сеарилизуем объект
+            success: function(response) { //Данные отправлены успешно
+                $('.btn-submit').css({'background-color': '#2878EB'});
+                //let res = '<div class="content__p-submit-container successed"><span class="container__close-icon">x</span><p>'+JsonData.submitMessage+'</p></div>';
+                // $('.popups__content').append(res);
+                // $('.popups').show(300);
+
+            },
+            error: function(response) { // Данные не отправлены
+                // $('.btn-submit').css({'background-color': '#2878EB'});
+                let res = '<div class="content__p-submit-container error-bg"><span class="container__close-icon">x</span><p>'+JsonData.errMessage+'</p></div>';
+                $('.popups__content').append(res);
+                $('.popups').show(300);
+            },
+            complete: function () {
+                // $('.btn-submit').css({'background-color': DefaultBg});
+                setTimeout(function () {
+                    $('.popups').hide(300);
+                    $('.popups__content').html('');
+                }, 3000);
+            }
+        });
+
+    }
 });
