@@ -148,6 +148,7 @@ $(document).ready(function () {
             // instead of a settings object
         ]
     });
+
     $('.droplist__item-row').click(function () {
         let rowIcon = $(this).children('.item-row').children('.item-row__service-pack').find('.service-pack__icon span:last-child');
         let thisProps = $(this).find('.item-row__grid-service-prop');

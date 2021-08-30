@@ -925,12 +925,16 @@ div.header__logo-block span, div.col-f__logo-block span {
 .grid__item img, .grid__item video {width: 100%;}
 
 /*============reviews=section=start============*/
+/*.site-size__reviews {*/
+/*    width: 100%;*/
+/*    padding: 50px 0;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 .site-size__reviews {
     width: 100%;
     padding: 50px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 .reviews__item {
     max-width: 450px;
@@ -942,6 +946,11 @@ div.header__logo-block span, div.col-f__logo-block span {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+.slider-reviews .slick-slide div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .item__title-review .title-h3__text {
     font-style: normal;

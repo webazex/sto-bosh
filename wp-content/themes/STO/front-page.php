@@ -133,129 +133,18 @@ get_header();
 		</section>
 		<section>
 			<div class="site-size">
-				<div class="site-size__slider-section">
-					<h2 class="slider-section__title">
-						<span class="title__text">Наши услуги</span>
-					</h2>
-					<div class="slider-section__slider">
-						<div class="slider__item">
-							<img src="css/pic/s1.png" alt="">
-							<h5>Маслянное ТО</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-						</div>
-						<div class="slider__item">
-							<img src="css/pic/s2.png" alt="">
-							<h5>Ремонт Ходовой</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-						</div>
-						<div class="slider__item">
-							<img src="css/pic/s3.png" alt="">
-							<h5>Ремонт Стекол</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-						</div>
-						<div class="slider__item">
-							<img src="css/pic/s1.png" alt="">
-							<h5>Маслянное ТО</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-						</div>
-						<div class="slider__item">
-							<img src="css/pic/s1.png" alt="">
-							<h5>Маслянное ТО</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-						</div>
-					</div>
-				</div>
+				<?php echo renderServiseSection(); ?>
 			</div>
 		</section>
-		<section style="background-color: #F2F3F5; padding: 50px 0;">
-			<div class="site-size">
-				<div class="site-size__callback-form">
-					<span class="callback-form__text">Хотите мы вам перезвоним?</span>
-					<form action="" method="post">
-						<input type="text" name="name" placeholder="Имя">
-						<input type="tel" name="phone" placeholder="Телефон">
-						<button type="submit"><span>Отправить</span></button>
-					</form>
-				</div>
-			</div>
-		</section>
-		<section style="background-color: #F2F3F5;">
-			<div class="site-size">
-				<div class="site-size__advantages-content">
-					<div class="advantages-content__row">
-						<div class="row__adv-item">
-							<span class="adv-item__title">Преимущества</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-								labore et dolore magna aliqua</p>
-							<span class="adv-item__number">1</span>
-						</div>
-						<div class="row__adv-item">
-							<span class="adv-item__title">Преимущества</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-								labore et dolore magna aliqua</p>
-							<span class="adv-item__number">2</span>
-						</div>
-						<div class="row__adv-item">
-							<span class="adv-item__title">Преимущества</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-								labore et dolore magna aliqua</p>
-							<span class="adv-item__number">3</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section style="background-color: #F2F3F5;">
-			<div class="site-size">
-				<div class="site-size__content-snake">
-					<h2 class="content-snake__title">
-						<span class="title-h2__text">Экспресс ТО за 30 минут</span>
-					</h2>
-					<div class="content-snake__grid">
-						<div class="grid__item">
-							<p>Замена масла занимает всего 30 минут. Экспресс услуга проводится в Bosch Auto Service Центр
-								Херсон. В наличии сертифицированные масла и фильтры для каждого автомобиля.</p>
+		<?php
+		echo renderCallbackCallForm();
+		echo renderAdvantagesSection();
+		echo renderContentSection();
+		?>
 
-							<p>Зачем нужна замена масла в двигателе?</p>
-
-							<p>Если масла недостаточно или оно сильно загрязнено, происходит износ деталей, двигатель
-								перегревается, что в будущем приводит к дорогостоящему ремонту. Во избежание этого, следует
-								обратиться в Bosch Auto Service Центр Херсон.</p>
-
-							<p>Как часто нужно менять масло?</p>
-
-							<p>Автомобильные эксперты Украины рекомендуют проходить ТО каждые 10 тыс. км, но не реже чем 1
-								раз в год. В связи с неправильной организацией трафика и чрезмерной пыльности на дорогах
-								происходит сильное загрязнение фильтров и повышается расход топлива.
-							</p>
-						</div>
-						<div class="grid__item">
-							<video src="video/bg2.webm" controls="controls" muted="muted"></video>
-						</div>
-						<div class="grid__item">
-							<img src="img/image%2011.jpg" alt="">
-						</div>
-						<div class="grid__item">
-							<p>
-								BOSCH Auto Service «Центр Херсон» начал свою работу в 2014 году. Как мультибрендовый
-								автосервис.</p>
-
-							<p>BOSCH Auto Service «Центр Херсон» завоевал доверие своих клиентов!</p>
-
-							<p>Благодаря сертифицированному персоналу, новейшему оборудованию, лояльным ценам, контролю
-								качества выполненных работ и постоянных приятных комплиментов.
-
-								В 2019 мы прошли аудит качества от компании «Robert Bosch Ltd.» Каждый день стремимся к
-								совершенству во всем, что мы делаем.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<section>
 			<div class="site-size">
-				<div class="site-size__reviews">
+				<div class="site-size__reviews slider-reviews">
 					<div class="reviews__item">
 						<h3 class="item__title-review title-h3">
 							<span class="title-h3__text">Regina Miles</span>
@@ -304,6 +193,54 @@ get_header();
 
 						</p>
 					</div>
+                    <div class="reviews__item">
+                        <h3 class="item__title-review title-h3">
+                            <span class="title-h3__text">Regina Miles</span>
+                        </h3>
+                        <img src="/img/%23user.png" alt="">
+                        <h6 class="title-h6 title-professy">
+                            <span class="title-h6__text">web-dev</span>
+                        </h6>
+                        <div class="item__stars-row">
+                            <span class="stars-row__star"></span>
+                            <span class="stars-row__star"></span>
+                            <span class="stars-row__star"></span>
+                            <span class="stars-row__star grey-star"></span>
+                        </div>
+                        <p>
+                            This proved to be impossible using the traditional
+                            concepts of space and time. Einstein developed a
+                            new view of time first and then space. This proved
+                            to be impossible using the traditional concepts of
+                            space and time. Einstein developed a new view
+                            of time first and then space.
+
+                        </p>
+                    </div>
+                    <div class="reviews__item">
+                        <h3 class="item__title-review title-h3">
+                            <span class="title-h3__text">Regina Miles 2</span>
+                        </h3>
+                        <img src="/img/%23user.png" alt="">
+                        <h6 class="title-h6 title-professy">
+                            <span class="title-h6__text">web-dev</span>
+                        </h6>
+                        <div class="item__stars-row">
+                            <span class="stars-row__star"></span>
+                            <span class="stars-row__star"></span>
+                            <span class="stars-row__star"></span>
+                            <span class="stars-row__star grey-star"></span>
+                        </div>
+                        <p>
+                            This proved to be impossible using the traditional
+                            concepts of space and time. Einstein developed a
+                            new view of time first and then space. This proved
+                            to be impossible using the traditional concepts of
+                            space and time. Einstein developed a new view
+                            of time first and then space.
+
+                        </p>
+                    </div>
 				</div>
 			</div>
 		</section>

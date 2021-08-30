@@ -148,6 +148,41 @@ $(document).ready(function () {
             // instead of a settings object
         ]
     });
+    console.log("initing");
+    $('.slider-reviews').slick({
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 980,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
     $('.droplist__item-row').click(function () {
         let rowIcon = $(this).children('.item-row').children('.item-row__service-pack').find('.service-pack__icon span:last-child');
         let thisProps = $(this).find('.item-row__grid-service-prop');
