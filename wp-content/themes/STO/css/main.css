@@ -968,6 +968,7 @@ div.header__logo-block span, div.col-f__logo-block span {
     height: 72px;
     display: block;
     left: -43px;
+    border-radius: 100%;
 }
 .item__stars-row {
     width: 130px;
@@ -996,6 +997,7 @@ div.header__logo-block span, div.col-f__logo-block span {
 .grey-star {
     background-image: url("pic/t-star.png");
 }
+.title-professy {text-align: center;}
 /*color: #FFFFFF;*/
 /*============reviews=section=end==============*/
 /*============footer=section=start==============*/

@@ -131,122 +131,20 @@ get_header();
 				</div>
 			</div>
 		</section>
-		<section>
-			<div class="site-size">
-				<?php echo renderServiseSection(); ?>
-			</div>
-		</section>
 		<?php
-		echo renderCallbackCallForm();
-		echo renderAdvantagesSection();
-		echo renderContentSection();
-		?>
+        //service
+        get_template_part('parts/service');
+        //callbackcall-form
+        get_template_part('parts/cbc-form');
+        //advantages-section
+		get_template_part('parts/advantages');
+		//snake-content
+		get_template_part('parts/snake-content');
+		//reviews
+		get_template_part('parts/reviews');
+        //map-ifraime
+        get_template_part('parts/map');
+        ?>
 
-		<section>
-			<div class="site-size">
-				<div class="site-size__reviews slider-reviews">
-					<div class="reviews__item">
-						<h3 class="item__title-review title-h3">
-							<span class="title-h3__text">Regina Miles</span>
-						</h3>
-						<img src="/img/%23user.png" alt="">
-						<h6 class="title-h6 title-professy">
-							<span class="title-h6__text">web-dev</span>
-						</h6>
-						<div class="item__stars-row">
-							<span class="stars-row__star"></span>
-							<span class="stars-row__star"></span>
-							<span class="stars-row__star"></span>
-							<span class="stars-row__star grey-star"></span>
-						</div>
-						<p>
-							This proved to be impossible using the traditional
-							concepts of space and time. Einstein developed a
-							new view of time first and then space. This proved
-							to be impossible using the traditional concepts of
-							space and time. Einstein developed a new view
-							of time first and then space.
-
-						</p>
-					</div>
-					<div class="reviews__item">
-						<h3 class="item__title-review title-h3">
-							<span class="title-h3__text">Regina Miles 2</span>
-						</h3>
-						<img src="/img/%23user.png" alt="">
-						<h6 class="title-h6 title-professy">
-							<span class="title-h6__text">web-dev</span>
-						</h6>
-						<div class="item__stars-row">
-							<span class="stars-row__star"></span>
-							<span class="stars-row__star"></span>
-							<span class="stars-row__star"></span>
-							<span class="stars-row__star grey-star"></span>
-						</div>
-						<p>
-							This proved to be impossible using the traditional
-							concepts of space and time. Einstein developed a
-							new view of time first and then space. This proved
-							to be impossible using the traditional concepts of
-							space and time. Einstein developed a new view
-							of time first and then space.
-
-						</p>
-					</div>
-                    <div class="reviews__item">
-                        <h3 class="item__title-review title-h3">
-                            <span class="title-h3__text">Regina Miles</span>
-                        </h3>
-                        <img src="/img/%23user.png" alt="">
-                        <h6 class="title-h6 title-professy">
-                            <span class="title-h6__text">web-dev</span>
-                        </h6>
-                        <div class="item__stars-row">
-                            <span class="stars-row__star"></span>
-                            <span class="stars-row__star"></span>
-                            <span class="stars-row__star"></span>
-                            <span class="stars-row__star grey-star"></span>
-                        </div>
-                        <p>
-                            This proved to be impossible using the traditional
-                            concepts of space and time. Einstein developed a
-                            new view of time first and then space. This proved
-                            to be impossible using the traditional concepts of
-                            space and time. Einstein developed a new view
-                            of time first and then space.
-
-                        </p>
-                    </div>
-                    <div class="reviews__item">
-                        <h3 class="item__title-review title-h3">
-                            <span class="title-h3__text">Regina Miles 2</span>
-                        </h3>
-                        <img src="/img/%23user.png" alt="">
-                        <h6 class="title-h6 title-professy">
-                            <span class="title-h6__text">web-dev</span>
-                        </h6>
-                        <div class="item__stars-row">
-                            <span class="stars-row__star"></span>
-                            <span class="stars-row__star"></span>
-                            <span class="stars-row__star"></span>
-                            <span class="stars-row__star grey-star"></span>
-                        </div>
-                        <p>
-                            This proved to be impossible using the traditional
-                            concepts of space and time. Einstein developed a
-                            new view of time first and then space. This proved
-                            to be impossible using the traditional concepts of
-                            space and time. Einstein developed a new view
-                            of time first and then space.
-
-                        </p>
-                    </div>
-				</div>
-			</div>
-		</section>
-		<section>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2737.7642194841033!2d32.585834316058744!3d46.67091597913382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c41090b20b8ebf%3A0xc3f3fd41b5e11083!2sBosch%20Car%20Service%20-%20Kherson%20Center!5e0!3m2!1sru!2sua!4v1573065990967!5m2!1sru!2sua"
-			        width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-		</section>
 	</main>
 <?php get_footer(); ?>

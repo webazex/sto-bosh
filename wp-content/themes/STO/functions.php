@@ -78,7 +78,7 @@ function renderAdvantagesSection( $pageId = 100 ) {
 	$advOne       = __getAdvantage( get_field( 'adv_1', $pageId ), 1 );
 	$advTwo       = __getAdvantage( get_field( 'adv_2', $pageId ), 2 );
 	$advThree     = __getAdvantage( get_field( 'adv_3', $pageId ), 3 );
-	$html         = '<section style="background-color: '.$sectionBg.'">
+	$html         = '<section style="background-color: ' . $sectionBg . '">
 			<div class="site-size">
 				<div class="site-size__advantages-content">
 					<h2 class="advantages-content__title-h2">
@@ -87,54 +87,115 @@ function renderAdvantagesSection( $pageId = 100 ) {
 						</span>
 					</h2>
 					<div class="advantages-content__row">
-						'.$advOne.$advTwo.$advThree.'
+						' . $advOne . $advTwo . $advThree . '
 					</div>
 				</div>
 			</div>
 		</section>';
+
 	return $html;
 }
-function renderContentSection($pageId = 100){
-	$content = get_field('block-content', $pageId);
+
+function renderContentSection( $pageId = 100 ) {
+	$content   = get_field( 'block-content', $pageId );
 	$sectionBg = $content['content-section__bg'];
-	$title = $content['content-section__title'];
-	$text = $content['home__text-content'];
-	$img = $content['home__img'];
-	$textTwo = $content['home__text-content_2'];
+	$title     = $content['content-section__title'];
+	$text      = $content['home__text-content'];
+	$img       = $content['home__img'];
+	$textTwo   = $content['home__text-content_2'];
 	//order
 	//text, video, img, text2
 	//repeat
-	if(intval($content['video__source']) == 1){
+	if ( intval( $content['video__source'] ) == 1 ) {
 		$youtube = $content['youtube_frame'];
-		$video = '<iframe width="100%" height="250px" src="'.$youtube.'" 
+		$video   = '<iframe width="100%" height="250px" src="' . $youtube . '" 
 title="YouTube video player" frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-	}elseif(intval($content['video__source']) == 2) {
-		$src = $content['home__link-content'];
-		$video = '<video src="'.$src.'" controls="controls" muted="muted"></video>';
+	} elseif ( intval( $content['video__source'] ) == 2 ) {
+		$src   = $content['home__link-content'];
+		$video = '<video src="' . $src . '" controls="controls" muted="muted"></video>';
 	}
-	$html = '<section style="background-color: '.$sectionBg.'">
+	$html = '<section style="background-color: ' . $sectionBg . '">
 			<div class="site-size">
 				<div class="site-size__content-snake">
 					<h2 class="content-snake__title">
-						<span class="title-h2__text">'.$title.'</span>
+						<span class="title-h2__text">' . $title . '</span>
 					</h2>
 					<div class="content-snake__grid">
 						<div class="grid__item">
-							'.$text.'
+							' . $text . '
 						</div>
 						<div class="grid__item">
-							'.$video.'
+							' . $video . '
 						</div>
 						<div class="grid__item">
-							<img src="'.$img.'" alt="">
+							<img src="' . $img . '" alt="">
 						</div>
 						<div class="grid__item">
-							'.$textTwo.'
+							' . $textTwo . '
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>';
+
 	return $html;
+}
+
+function __renderVotedRow( $review, $unvotedIcon = '', $votedIcon = '') {
+	try {
+		$vote = intval( array_values( $review['rating'] )[0] );
+	} catch ( Exception $e ) {
+		$vote = 0;
+		echo 'Ошибка получения оценки для отзыва: ', $e->getMessage(), "\n";
+		echo 'Обратитесь к webazex@gmail.com';
+	}
+	if ( empty( $unvotedIcon ) ) {
+		$unvotedIcon = get_template_directory_uri() . '/css/pic/t-star.png';
+		$cssUnvote   = 'style="background-image: url(\'' . $unvotedIcon . '\')"';
+
+	} else {
+		$cssUnvote = 'style="background-image: url(\'' . $unvotedIcon . '\')"';
+	}
+	//=======
+	if ( empty( $votedIcon ) ) {
+		$votedIcon = get_template_directory_uri() . '/css/pic/gold-s.png';
+		$cssVote   = 'style="background-image: url(\'' . $votedIcon . '\')';
+	} else {
+		$cssVote = 'style="background-image: url(\'' . $votedIcon . '\')';
+	}
+
+	//======
+	$stars = '';
+	for ( $i = 0; $i <= 4; $i++) {
+		if ( $i <= $vote ) {
+			$stars .= '<span class="stars-row__star grey-star" ' . $cssVote . '"></span>';
+		} else {
+			$stars .= '<span class="stars-row__star" ' . $cssUnvote . '"></span>';
+		}
+	}
+	$html = '<div class="item__stars-row">' . $stars . '</div>';
+	return $html;
+}
+
+function renderReviewsSection( $pageId = 100 ) {
+	$title      = CFS()->get( 'reviews__title', $pageId );
+	$unvotedUrl = CFS()->get( 'unvoted_icon', $pageId );
+	$votedUrl   = CFS()->get( 'voted_icon', $pageId );
+	$reviews    = CFS()->get( 'reviews_slider', $pageId );
+	$data   = array();
+	foreach ( $reviews as $k => $review ) {
+		$rating = __renderVotedRow($review, $unvotedUrl, $votedUrl);
+		array_push( $data, array(
+				'name'   => $review['fio'],
+				'photo'   => $review['photo'],
+				'work'   => $review['profesy'],
+				'rating' => $rating,
+				'text'   => $review['rev-text'],
+			)
+		);
+	}
+	$returned['title'] = $title;
+	$returned['content'] = $data;
+	return $returned;
 }
