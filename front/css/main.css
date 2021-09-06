@@ -199,7 +199,7 @@ div.header__logo-block span, div.col-f__logo-block span {
     margin-right: 0;
 }
 
-.menu-item-has-children .menu-item__item span:after {
+.has-subitem .menu-item__item span:after {
     content: '›';
     color: white;
     font-size: 20px;
@@ -226,14 +226,12 @@ div.header__logo-block span, div.col-f__logo-block span {
     align-items: center;
 }
 
-.menu-item__item span, .menu-item__item span a, .container__item span a {
+.menu-item__item span {
     color: #ffffff;
     display: flex;
     align-items: center;
 }
-.menu-item__item span a, .container__item span a {
-    text-decoration: none;
-}
+
 .menu-item__submenu {
     position: absolute;
     display: none;
@@ -927,16 +925,12 @@ div.header__logo-block span, div.col-f__logo-block span {
 .grid__item img, .grid__item video {width: 100%;}
 
 /*============reviews=section=start============*/
-/*.site-size__reviews {*/
-/*    width: 100%;*/
-/*    padding: 50px 0;*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*}*/
 .site-size__reviews {
     width: 100%;
     padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .reviews__item {
     max-width: 450px;
@@ -948,11 +942,6 @@ div.header__logo-block span, div.col-f__logo-block span {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-}
-.slider-reviews .slick-slide div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
 .item__title-review .title-h3__text {
     font-style: normal;
@@ -970,7 +959,6 @@ div.header__logo-block span, div.col-f__logo-block span {
     height: 72px;
     display: block;
     left: -43px;
-    border-radius: 100%;
 }
 .item__stars-row {
     width: 130px;
@@ -999,7 +987,6 @@ div.header__logo-block span, div.col-f__logo-block span {
 .grey-star {
     background-image: url("pic/t-star.png");
 }
-.title-professy {text-align: center;}
 /*color: #FFFFFF;*/
 /*============reviews=section=end==============*/
 /*============footer=section=start==============*/

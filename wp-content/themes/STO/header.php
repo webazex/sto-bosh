@@ -27,58 +27,59 @@
 							<span></span>
 							<span></span>
 						</button>
-						<ul class="menu__container">
-							<li class="container__menu-item has-subitem">
-								<div class="menu-item__item">
-									<span>Услуги</span>
-								</div>
-								<div class="menu-item__submenu">
-									<ul class="submenu__list">
-										<li class="list__container">
-											<div class="container__item">
-												<span>Диагностика перед покупкой</span>
-											</div>
-										</li>
-										<li class="list__container">
-											<div class="container__item">
-												<span>Диагностика перед покупкой</span>
-											</div>
-										</li>
-										<li class="list__container">
-											<div class="container__item">
-												<span>Диагностика перед покупкой</span>
-											</div>
-										</li>
-										<li class="list__container">
-											<div class="container__item">
-												<span>Диагностика перед покупкой</span>
-											</div>
-										</li>
-										<li class="list__container">
-											<div class="container__item">
-												<span>Диагностика перед покупкой</span>
-											</div>
-										</li>
-									</ul>
-								</div>
-
-							</li>
-							<li class="container__menu-item">
-								<div class="menu-item__item">
-									<span>Автозапчасти BOSH</span>
-								</div>
-							</li>
-							<li class="container__menu-item">
-								<div class="menu-item__item">
-									<span>Цены</span>
-								</div>
-							</li>
-							<li class="container__menu-item">
-								<div class="menu-item__item">
-									<span>Контакты</span>
-								</div>
-							</li>
-						</ul>
+                        <?=renderStoHeaderMenu(); ?>
+<!--						<ul class="menu__container">-->
+<!--							<li class="container__menu-item has-subitem">-->
+<!--								<div class="menu-item__item">-->
+<!--									<span>Услуги</span>-->
+<!--								</div>-->
+<!--								<div class="menu-item__submenu">-->
+<!--									<ul class="submenu__list">-->
+<!--										<li class="list__container">-->
+<!--											<div class="container__item">-->
+<!--												<span>Диагностика перед покупкой</span>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li class="list__container">-->
+<!--											<div class="container__item">-->
+<!--												<span>Диагностика перед покупкой</span>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li class="list__container">-->
+<!--											<div class="container__item">-->
+<!--												<span>Диагностика перед покупкой</span>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li class="list__container">-->
+<!--											<div class="container__item">-->
+<!--												<span>Диагностика перед покупкой</span>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li class="list__container">-->
+<!--											<div class="container__item">-->
+<!--												<span>Диагностика перед покупкой</span>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--									</ul>-->
+<!--								</div>-->
+<!---->
+<!--							</li>-->
+<!--							<li class="container__menu-item">-->
+<!--								<div class="menu-item__item">-->
+<!--									<span>Автозапчасти BOSH</span>-->
+<!--								</div>-->
+<!--							</li>-->
+<!--							<li class="container__menu-item">-->
+<!--								<div class="menu-item__item">-->
+<!--									<span>Цены</span>-->
+<!--								</div>-->
+<!--							</li>-->
+<!--							<li class="container__menu-item">-->
+<!--								<div class="menu-item__item">-->
+<!--									<span>Контакты</span>-->
+<!--								</div>-->
+<!--							</li>-->
+<!--						</ul>-->
 					</div>
 					<button class="others-blocks__callback-call">
 						<span class="callback-call__text">Заказать звонок</span>
