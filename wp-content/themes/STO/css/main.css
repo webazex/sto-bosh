@@ -1368,6 +1368,17 @@ div.header__logo-block span, div.col-f__logo-block span {
     grid-row-gap: 10px;
     justify-content: space-between;
 }
+.service-content__none {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.service-content__none span {
+    font-size: 17px;
+    color: #131D3B;
+    text-align: center;
+}
 .container-grid__item-row {
     max-width: 540px;
     width: auto;

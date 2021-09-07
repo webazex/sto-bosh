@@ -359,3 +359,145 @@ function renderFirstSection($img, $title, $subtitle = false, $pageId = false){
             </div>';
 	return $html;
 }
+
+function renderServiceListSection($title, $backgroundColor = "#E5E5E5",  $pageId = false) {
+	if ( ( empty( $title ) or isset( $title ) ) ) {
+		$title = CFS()->get( '	service_title', $pageId );
+	}
+
+	$html         = '<h3 class="service-content__title">
+                        <span class="title-h3__text">' . $title . '</span>
+                    </h3>';
+	$servicesList = CFS()->get( 'service_list', $pageId );
+	if(empty($servicesList) or isset($servicesList)){
+		$html .='<div class="service-content__none">
+<span>В скором времени услуги будут добавлены на сайт, ожидайте.</span>
+</div>';
+	}else{
+		$html         .= '<div class="service-content__container-grid">';
+		foreach ( $servicesList as $service ) {
+			$icon = $service['icon'];
+			$text = $service['text'];
+			$html .= '<div class="container-grid__item-row">
+                            <img class="item-row__icon" src="' . $icon . '" alt="">
+                            <span class="item-row__text">' . $text . '</span>
+                        </div>';
+		}
+		$html .= '</div>';
+	}
+	return $html;
+}
+
+function renderServicesPage($title, $img, $pageId = false, $backgroundColor = "#E5E5E5", $action = false, $method = 'POST'){
+	$html ='<section style="background-color: '.$backgroundColor.';">
+            <div class="site-size">
+                <div class="site-size__service-content">';
+	$html .= renderServiceListSection($title);
+	$html .= renderFormOrder($img, '', $action, $pageId, $method);
+	$html .='</div>
+            </div>
+        </section>';
+	return $html;
+}
+
+function renderFormOrder($img, $formTitle, $action = false, $pageId = false, $method = 'POST'){
+	if((empty($img) or isset($img))){
+		$img = get_template_directory_uri().'/img/img-with-form.jpg';
+	}
+	if((empty($formTitle) or isset($formTitle) or ($formTitle === false))){
+		$formTitle = "Онлайн запись на СТО";
+	}
+	if((empty($action) or isset($action) or ($action === false))){
+		$action = get_template_directory_uri(). '/back/mail/sender.php';
+	}
+	if((empty($pageId) or isset($pageId) or ($action === $pageId))){
+		$pageId = get_the_ID();
+	}
+	$html ='<div class="service-content__container-form-left-img">';
+	$html .='<div class="container-form-left-img__box">
+                            <div class="box__layout"></div>
+                            <img src="'.$img.'" alt="">
+                        </div>
+                        <div class="container-form-left-img__form">
+                            <span class="form__title">'.$formTitle.'</span>
+                            <form action="'.$action.'" method="'.$method.'">
+                                <label>
+                                    <input type="text" name="car" placeholder="Автомобиль">
+                                </label>
+                                <label>
+                                    <input type="text" name="name" placeholder="Имя">
+                                </label>
+                                <label>
+                                    <input type="tel" name="phone" placeholder="+38">
+                                </label>
+
+                                <label>
+                                    <input type="text" name="service_type" placeholder="Вид услуг">
+                                </label>
+                                <div class="right-part-sto__submit-text-row">
+                                    <div class="submit-text-row__checkbox-text">
+                                        <input type="checkbox" name="agreement" class="checkbox-text__input-checkbox"
+                                               id="'.$pageId.'">
+                                        <label for="'.$pageId.'">
+                                            <span></span>
+                                        </label>
+
+                                        <span>Я даю свое согласие на обработку указанных мною персональных данных*</span>
+                                    </div>
+                                </div>
+                                <button type="submit">
+                                    <span>Оставить заявку</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>';
+	return $html;
+}
+
+function renderServiceContentSection($title = '', $content = '', $img = '', $pageId=false, $imgWidth = 'default', $order = 'default'){
+	if ($pageId === false){
+		$pageId = get_the_ID();
+	}
+	if(empty($content) or isset($content)){
+		$content = CFS()->get('content__text-block', $pageId);
+	}
+	if(empty($img) or isset($img)){
+		$img = CFS()->get('content__img', $pageId);
+	}
+	if(empty($title) or isset($title)){
+		$titleHtml = '';
+	}else{
+		$titleHtml = '<h2 class="content__h2-title"><span>'.$title.'</span></h2>';
+	}
+	if(empty($imgWidth) or isset($imgWidth)){
+		$imgSizeType = CFS()->get('content__img-size-type', $pageId);
+	}else{
+		$imgSizeType = $imgWidth;
+	}
+	if(empty($imgSizeType) or isset($imgSizeType)){
+		$imgSizeType = 'default';
+	}
+	switch ($imgSizeType){
+		case 'default':
+			$imgSizeClass = 'default-size';
+			break;
+		case 'min':
+			$imgSizeClass = 'min-size';
+			break;
+		case 'large':
+			$imgSizeClass = 'large-size';
+			break;
+		default:
+			$imgSizeClass = 'default-size';
+			break;
+	}
+	$html = '<section><div class="site-size"><div class="site-size__content">'.$titleHtml;
+	$html .='<div class="content__grid-area">
+	
+		<div class="grid-area__content '.$imgSizeClass.'">
+			<img class="content__img" src="'.$img.'" alt="">
+		</div>
+		<div class="content__text-service-page">'.$content.'</div>
+	</div>';
+}
+
