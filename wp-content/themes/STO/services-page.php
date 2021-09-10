@@ -10,6 +10,5 @@ get_header();
             <?=renderFirstSection('', "Sample Maxima title");?>
         </section>
             <?=renderServicesPage('', '');?>
-        <?=renderServiceContentSection();?>
     </main>
 <?php get_footer();

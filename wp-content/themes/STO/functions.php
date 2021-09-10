@@ -4,9 +4,10 @@ function sto_theme_actions() {
 	$menuLocations = array(
 		'header' => "Меню в шапке сайта",
 		'footer' => "Меню в подвале сайта",
-		);
+	);
 	register_nav_menus( $menuLocations );
 }
+
 add_action( 'wp_enqueue_scripts', 'jquery_add' );
 function jquery_add() {
 	wp_deregister_script( 'jquery' );
@@ -26,9 +27,9 @@ function sto_themes_ss() {
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true );
 }
 
-function renderStoHeaderMenu($mobile = false){
+function renderStoHeaderMenu( $mobile = false ) {
 	$argsSubMenu = [
-		'container' => 'div',
+		'container'       => 'div',
 		'container_class' => 'menu-item__submenu',
 	];
 	add_filter( 'nav_menu_submenu_css_class', 'change_wp_nav_menu', 10, 3 );
@@ -45,40 +46,42 @@ function renderStoHeaderMenu($mobile = false){
 				$classes[ $key ] = 'submenu__list';
 			}
 		}
+
 //		print_r($args);
 
 		return $classes;
 	}
+
 	// свой класс построения меню:
 	class STO_Walker_Menu extends Walker_Nav_Menu {
 
 		// add classes to ul sub-menus
-		function start_lvl( &$output, $depth = 0, $args = NULL ) {
+		function start_lvl( &$output, $depth = 0, $args = null ) {
 			// depth dependent classes
-			$indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
-			$display_depth = ( $depth + 1); // because it counts the first submenu as 0
-			$classes = array(
+			$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+			$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0
+			$classes       = array(
 				'sub-menu submenu__list',
-				( $display_depth % 2  ? 'menu-odd' : 'menu-even' ),
-				( $display_depth >=2 ? 'sub-sub-menu' : '' ),
+				( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
+				( $display_depth >= 2 ? 'sub-sub-menu' : '' ),
 				'menu-depth-' . $display_depth
 			);
-			$class_names = implode( ' ', $classes );
+			$class_names   = implode( ' ', $classes );
 
 
 			// build html
-			$output .= "\n" . $indent.'</div><div class="menu-item__submenu"><ul class="' . $class_names . '">' . "\n";
+			$output .= "\n" . $indent . '</div><div class="menu-item__submenu"><ul class="' . $class_names . '">' . "\n";
 		}
 
 		// add main/sub classes to li's and links
-		function start_el( &$output, $item, $depth = 0, $args = NULL, $id = 0 ) {
+		function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 			global $wp_query;
 			$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
 
 			// depth dependent classes
 			$depth_classes = array(
 				( $depth == 0 ? 'main-menu-item' : 'sub-menu-item list__container' ),
-				( $depth >=2 ? 'sub-sub-menu-item' : '' ),
+				( $depth >= 2 ? 'sub-sub-menu-item' : '' ),
 				( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
 				'menu-item-depth-' . $depth
 			);
@@ -86,22 +89,22 @@ function renderStoHeaderMenu($mobile = false){
 			$depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
 
 			// passed classes
-			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 			$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
-			if($depth >= 1){
+			if ( $depth >= 1 ) {
 				$html = '<div class="container__item"><span>';
-			}else{
+			} else {
 				$html = '<div class="menu-item__item"><span>';
 			}
 
 			// build html
-			$output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">'.$html;
+			$output .= $indent . '<li id="nav-menu-item-' . $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">' . $html;
 
 			// link attributes
-			$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-			$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-			$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+			$attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
+			$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+			$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
+			$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 			$attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
 
 			$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
@@ -117,11 +120,14 @@ function renderStoHeaderMenu($mobile = false){
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 	}
-	add_filter('nav_menu_css_class' , 'sto_menu_header_classes' , 10 , 2);
-	function sto_menu_header_classes($classes, $item){
+
+	add_filter( 'nav_menu_css_class', 'sto_menu_header_classes', 10, 2 );
+	function sto_menu_header_classes( $classes, $item ) {
 		$classes[] = 'container__menu-item';
+
 		return $classes;
 	}
+
 	$menu = wp_nav_menu( [
 		'theme_location'  => 'header',
 		'menu'            => '',
@@ -142,6 +148,7 @@ function renderStoHeaderMenu($mobile = false){
 		'depth'           => 0,
 		'walker'          => new STO_Walker_Menu(),
 	] );
+
 	return $menu;
 }
 
@@ -269,7 +276,7 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 	return $html;
 }
 
-function __renderVotedRow( $review, $unvotedIcon = '', $votedIcon = '') {
+function __renderVotedRow( $review, $unvotedIcon = '', $votedIcon = '' ) {
 	try {
 		$vote = intval( array_values( $review['rating'] )[0] );
 	} catch ( Exception $e ) {
@@ -294,7 +301,7 @@ function __renderVotedRow( $review, $unvotedIcon = '', $votedIcon = '') {
 
 	//======
 	$stars = '';
-	for ( $i = 0; $i <= 4; $i++) {
+	for ( $i = 0; $i <= 4; $i ++ ) {
 		if ( $i <= $vote ) {
 			$stars .= '<span class="stars-row__star grey-star" ' . $cssVote . '"></span>';
 		} else {
@@ -302,6 +309,7 @@ function __renderVotedRow( $review, $unvotedIcon = '', $votedIcon = '') {
 		}
 	}
 	$html = '<div class="item__stars-row">' . $stars . '</div>';
+
 	return $html;
 }
 
@@ -310,45 +318,46 @@ function renderReviewsSection( $pageId = 100 ) {
 	$unvotedUrl = CFS()->get( 'unvoted_icon', $pageId );
 	$votedUrl   = CFS()->get( 'voted_icon', $pageId );
 	$reviews    = CFS()->get( 'reviews_slider', $pageId );
-	$data   = array();
+	$data       = array();
 	foreach ( $reviews as $k => $review ) {
-		$rating = __renderVotedRow($review, $unvotedUrl, $votedUrl);
+		$rating = __renderVotedRow( $review, $unvotedUrl, $votedUrl );
 		array_push( $data, array(
 				'name'   => $review['fio'],
-				'photo'   => $review['photo'],
+				'photo'  => $review['photo'],
 				'work'   => $review['profesy'],
 				'rating' => $rating,
 				'text'   => $review['rev-text'],
 			)
 		);
 	}
-	$returned['title'] = $title;
+	$returned['title']   = $title;
 	$returned['content'] = $data;
+
 	return $returned;
 }
 
-function renderFirstSection($img, $title, $subtitle = false, $pageId = false){
-	if((empty($img) or isset($img))){
-		$img = get_template_directory_uri().'/css/pic/home-bg.jpg';
+function renderFirstSection( $img, $title, $subtitle = false, $pageId = false ) {
+	if ( ( empty( $img ) or isset( $img ) ) ) {
+		$img = get_template_directory_uri() . '/css/pic/home-bg.jpg';
 	}
-	if((empty($subtitle) or isset($subtitle) or ($subtitle = false))){
+	if ( ( empty( $subtitle ) or isset( $subtitle ) or ( $subtitle = false ) ) ) {
 		$subtitle = '';
-	}else{
+	} else {
 		$dom = '<h4 class="center-block__title-h4">
-							<span class="title-h4__text">'.$subtitle.'</span>
+							<span class="title-h4__text">' . $subtitle . '</span>
 						</h4>';
 	};
-	if(!$pageId){
+	if ( ! $pageId ) {
 		// получаем данные с произвольных полей, используя этот id
 	}
 	$html = '<div class="home__container-title">
                 <div class="container-title__layer"></div>
-                <div class="container-title__services-bg" style="background-image: url('.$img.'"></div>
+                <div class="container-title__services-bg" style="background-image: url(' . $img . '"></div>
                 <div class="container-title__services-content">
                     <div class="services-content__center-block">
                         <h1 class="center-block__title-h1">
-                            <span class="title-h1__text">'.$title.'</span>
-                        </h1>'.$dom.'                        
+                            <span class="title-h1__text">' . $title . '</span>
+                        </h1>' . $dom . '                        
                         <div class="center-block__row-btns-order">
                             <a href="#" id="stoBtn" class="row-btns__link call-order">
                                 <span class="link__text">Заказать звонок</span>
@@ -357,10 +366,11 @@ function renderFirstSection($img, $title, $subtitle = false, $pageId = false){
                     </div>
                 </div>
             </div>';
+
 	return $html;
 }
 
-function renderServiceListSection($title, $backgroundColor = "#E5E5E5",  $pageId = false) {
+function renderServiceListSection( $title, $backgroundColor = "#E5E5E5", $pageId = false ) {
 	if ( ( empty( $title ) or isset( $title ) ) ) {
 		$title = CFS()->get( '	service_title', $pageId );
 	}
@@ -369,12 +379,12 @@ function renderServiceListSection($title, $backgroundColor = "#E5E5E5",  $pageId
                         <span class="title-h3__text">' . $title . '</span>
                     </h3>';
 	$servicesList = CFS()->get( 'service_list', $pageId );
-	if(empty($servicesList) or isset($servicesList)){
-		$html .='<div class="service-content__none">
+	if ( empty( $servicesList ) or isset( $servicesList ) ) {
+		$html .= '<div class="service-content__none">
 <span>В скором времени услуги будут добавлены на сайт, ожидайте.</span>
 </div>';
-	}else{
-		$html         .= '<div class="service-content__container-grid">';
+	} else {
+		$html .= '<div class="service-content__container-grid">';
 		foreach ( $servicesList as $service ) {
 			$icon = $service['icon'];
 			$text = $service['text'];
@@ -385,42 +395,44 @@ function renderServiceListSection($title, $backgroundColor = "#E5E5E5",  $pageId
 		}
 		$html .= '</div>';
 	}
+
 	return $html;
 }
 
-function renderServicesPage($title, $img, $pageId = false, $backgroundColor = "#E5E5E5", $action = false, $method = 'POST'){
-	$html ='<section style="background-color: '.$backgroundColor.';">
+function renderServicesPage( $title, $img, $pageId = false, $backgroundColor = "#E5E5E5", $action = false, $method = 'POST' ) {
+	$html = '<section style="background-color: ' . $backgroundColor . ';">
             <div class="site-size">
                 <div class="site-size__service-content">';
-	$html .= renderServiceListSection($title);
-	$html .= renderFormOrder($img, '', $action, $pageId, $method);
-	$html .='</div>
+	$html .= renderServiceListSection( $title );
+	$html .= renderFormOrder( $img, '', $action, $pageId, $method );
+	$html .= '</div>
             </div>
         </section>';
+
 	return $html;
 }
 
-function renderFormOrder($img, $formTitle, $action = false, $pageId = false, $method = 'POST'){
-	if((empty($img) or isset($img))){
-		$img = get_template_directory_uri().'/img/img-with-form.jpg';
+function renderFormOrder( $img, $formTitle, $action = false, $pageId = false, $method = 'POST' ) {
+	if ( ( empty( $img ) or isset( $img ) ) ) {
+		$img = get_template_directory_uri() . '/img/img-with-form.jpg';
 	}
-	if((empty($formTitle) or isset($formTitle) or ($formTitle === false))){
+	if ( ( empty( $formTitle ) or isset( $formTitle ) or ( $formTitle === false ) ) ) {
 		$formTitle = "Онлайн запись на СТО";
 	}
-	if((empty($action) or isset($action) or ($action === false))){
-		$action = get_template_directory_uri(). '/back/mail/sender.php';
+	if ( ( empty( $action ) or isset( $action ) or ( $action === false ) ) ) {
+		$action = get_template_directory_uri() . '/back/mail/sender.php';
 	}
-	if((empty($pageId) or isset($pageId) or ($action === $pageId))){
+	if ( ( empty( $pageId ) or isset( $pageId ) or ( $action === $pageId ) ) ) {
 		$pageId = get_the_ID();
 	}
-	$html ='<div class="service-content__container-form-left-img">';
-	$html .='<div class="container-form-left-img__box">
+	$html = '<div class="service-content__container-form-left-img">';
+	$html .= '<div class="container-form-left-img__box">
                             <div class="box__layout"></div>
-                            <img src="'.$img.'" alt="">
+                            <img src="' . $img . '" alt="">
                         </div>
                         <div class="container-form-left-img__form">
-                            <span class="form__title">'.$formTitle.'</span>
-                            <form action="'.$action.'" method="'.$method.'">
+                            <span class="form__title">' . $formTitle . '</span>
+                            <form action="' . $action . '" method="' . $method . '">
                                 <label>
                                     <input type="text" name="car" placeholder="Автомобиль">
                                 </label>
@@ -437,8 +449,8 @@ function renderFormOrder($img, $formTitle, $action = false, $pageId = false, $me
                                 <div class="right-part-sto__submit-text-row">
                                     <div class="submit-text-row__checkbox-text">
                                         <input type="checkbox" name="agreement" class="checkbox-text__input-checkbox"
-                                               id="'.$pageId.'">
-                                        <label for="'.$pageId.'">
+                                               id="' . $pageId . '">
+                                        <label for="' . $pageId . '">
                                             <span></span>
                                         </label>
 
@@ -451,33 +463,39 @@ function renderFormOrder($img, $formTitle, $action = false, $pageId = false, $me
                             </form>
                         </div>
                     </div>';
+
 	return $html;
 }
 
-function renderServiceContentSection($title = '', $content = '', $img = '', $pageId=false, $imgWidth = 'default', $order = 'default'){
-	if ($pageId === false){
+function renderServiceContentSection( $title = '', $content = '', $img = '', $pageId = false, $imgWidth = 'default', $order = 'default' ) {
+	if ( $pageId === false ) {
 		$pageId = get_the_ID();
 	}
-	if(empty($content) or isset($content)){
-		$content = CFS()->get('content__text-block', $pageId);
+	if ( empty( $content ) or isset( $content ) ) {
+		$content = CFS()->get( 'content__text-block', $pageId );
 	}
-	if(empty($img) or isset($img)){
-		$img = CFS()->get('content__img', $pageId);
+	if ( empty( $img ) or isset( $img ) ) {
+		$img = CFS()->get( 'content__img', $pageId );
 	}
-	if(empty($title) or isset($title)){
+	if ( empty( $title ) or isset( $title ) ) {
 		$titleHtml = '';
-	}else{
-		$titleHtml = '<h2 class="content__h2-title"><span>'.$title.'</span></h2>';
+	} else {
+		$titleHtml = '<h2 class="content__h2-title"><span>' . $title . '</span></h2>';
 	}
-	if(empty($imgWidth) or isset($imgWidth)){
-		$imgSizeType = CFS()->get('content__img-size-type', $pageId);
-	}else{
+	if ( empty( $imgWidth ) or isset( $imgWidth ) ) {
+		$imgSizeType = CFS()->get( 'content__img-size-type', $pageId );
+	} else {
 		$imgSizeType = $imgWidth;
 	}
-	if(empty($imgSizeType) or isset($imgSizeType)){
+	if ( empty( $imgSizeType ) or isset( $imgSizeType ) ) {
 		$imgSizeType = 'default';
 	}
-	switch ($imgSizeType){
+	$showPrice = boolval(CFS()->get('show_price', $pageId));
+	$pricesContent = CFS()->get('service-content__price',$pageId);
+	$priceSectionTitle = CFS()->get('price-section__title',$pageId);
+	$showStages = boolval(CFS()->get('show_repaire', $pageId));
+	$customWidth = '';
+	switch ( $imgSizeType ) {
 		case 'default':
 			$imgSizeClass = 'default-size';
 			break;
@@ -488,16 +506,33 @@ function renderServiceContentSection($title = '', $content = '', $img = '', $pag
 			$imgSizeClass = 'large-size';
 			break;
 		default:
-			$imgSizeClass = 'default-size';
+			try {
+				$customWidth = intval( $imgSizeType );
+			} catch ( Exception $e ) {
+				echo "Ожидаемое значение не было целым числом, либо преобразование не удалось.";
+			}
+			$imgSizeClass = 'custom-size';
 			break;
 	}
-	$html = '<section><div class="site-size"><div class="site-size__content">'.$titleHtml;
-	$html .='<div class="content__grid-area">
+	$html = '<section><div class="site-size"><div class="site-size__content">' . $titleHtml;
+	$html .= '<div class="content__grid-area">
 	
-		<div class="grid-area__content '.$imgSizeClass.'">
-			<img class="content__img" src="'.$img.'" alt="">
+		<div class="grid-area__content ' . $imgSizeClass . '">
+			<img class="content__img" src="' . $img . '" alt="" width="' . $customWidth . '">
 		</div>
-		<div class="content__text-service-page">'.$content.'</div>
+		<div class="content__text-service-page">' . $content . '</div>
 	</div>';
+	if($showPrice){
+		$html .= '';
+	}else{
+		$html .= '';
+	}
+	if($showStages){
+
+	}else{
+		$html .= '';
+	}
+	$html .= '</div></div></section>';
+	return $html;
 }
 

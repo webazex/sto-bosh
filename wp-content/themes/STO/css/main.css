@@ -1625,6 +1625,54 @@ div.header__logo-block span, div.col-f__logo-block span {
     margin-right: 10px;
 }
 /*===================prices===end============*/
+
+/*service-one-page==item====start=========*/
+.content__grid-area {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-auto-rows: auto;
+    margin: 50px 0;
+}
+.content__img {
+    width: 100%;
+}
+.container__default-content {
+    padding: 50px 0;
+}
+.content__text-service-page h3, .content__text-service-page h3 span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 48px;
+}
+.content__text-service-page ul {
+    padding: 15px 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 32px;
+}
+.content__text-service-page ul li {list-style: none;}
+.content__text-service-page ol {
+    padding: 15px 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 32px;}
+.content__text-service-page ol li {list-style: none;}
+
+.content__text-service-page ul li:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #23BEFF;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+/*service-one-page==item====end===========*/
     /*====service--classes--start=====*/
 .bt-mw-156 {max-width: 156px;}
 .no-bg {background: transparent;}
@@ -1632,7 +1680,24 @@ div.header__logo-block span, div.col-f__logo-block span {
 .open {
     display: grid;
 }
-
+.default-size {
+    min-width: 500px;
+    width: 100%;
+    height: auto;
+    max-width: 575px;
+}
+.min-size {
+    min-width: 250px;
+    width: 100%;
+    height: auto;
+    max-width: 477px;
+}
+.large-size {
+    min-width: 625px;
+    width: 100%;
+    height: auto;
+    max-width: 725px;
+}
 /*====service--classes--end=====*/
 
 /*=======================adaptive======start===================*/
