@@ -1615,7 +1615,7 @@ div.header__logo-block span, div.col-f__logo-block span {
 .grid-service-prop__price {
     justify-content: flex-end;
 }
-.grid-service-prop__price span {
+.grid-service-prop__price span, .grid-service-prop__price > * {
     font-style: normal;
     font-weight: bold;
     font-size: 25px;
@@ -2016,7 +2016,7 @@ div.header__logo-block span, div.col-f__logo-block span {
     .grid-service-prop__desc p {
         font-size: 14px;
     }
-    .grid-service-prop__price span {
+    .grid-service-prop__price span, .grid-service-prop__price * {
         font-size: 18px;
     }
 }

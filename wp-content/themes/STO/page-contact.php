@@ -23,7 +23,7 @@ $personals = getPersonals();
 								<div class="person-item__data">
 									<span class="data__item professy"><?=$person['prof']; ?></span>
 									<span class="data__item name"><?=$person['fio']; ?></span>
-									<a href="tel:+<?=preg_replace('/[^0-9]/', '', $person['phone']); ?>" class="data__item phone"><?=$person['phone']; ?></a>
+									<a href="tel:+<?=preg_replace('/[\D]/', '', $person['phone']); ?>" class="data__item phone"><?=$person['phone']; ?></a>
 								</div>
 							</div>
 							<?php endforeach; ?>
@@ -32,7 +32,7 @@ $personals = getPersonals();
 							<span class="info-block__adress"><?=getContactAdress();?></span>
 							<div class="info-block__phone-block">
 								<?php foreach ($phones as $item):
-								$href = preg_replace("/[^0-9]/", '', $item['phone']);?>
+								$href = preg_replace("/[\D]/", '', $item['phone']);?>
 								<a href="tel:+<?=$href; ?>" class="phone-block__item"><?=$item['phone']; ?></a>
 								<?php endforeach; ?>
 							</div>
