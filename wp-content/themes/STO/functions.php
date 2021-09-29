@@ -372,14 +372,14 @@ function renderFirstSection( $img, $title, $subtitle = false, $pageId = false ) 
 
 function renderServiceListSection( $title, $backgroundColor = "#E5E5E5", $pageId = false ) {
 	if ( ( empty( $title ) or isset( $title ) ) ) {
-		$title = CFS()->get( '	service_title', $pageId );
+		$title = CFS()->get( 'service_title', $pageId );
 	}
 
 	$html         = '<h3 class="service-content__title">
                         <span class="title-h3__text">' . $title . '</span>
                     </h3>';
-	$servicesList = CFS()->get( 'service_list', $pageId );
-	if ( empty( $servicesList ) or isset( $servicesList ) ) {
+	$servicesList = CFS()->get('service_list', $pageId );
+		if (empty( $servicesList )) {
 		$html .= '<div class="service-content__none">
 <span>В скором времени услуги будут добавлены на сайт, ожидайте.</span>
 </div>';
@@ -395,7 +395,6 @@ function renderServiceListSection( $title, $backgroundColor = "#E5E5E5", $pageId
 		}
 		$html .= '</div>';
 	}
-
 	return $html;
 }
 
