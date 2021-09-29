@@ -534,4 +534,40 @@ function renderServiceContentSection( $title = '', $content = '', $img = '', $pa
 	$html .= '</div></div></section>';
 	return $html;
 }
+function getContactTitle($pageId = false){
+	if($pageId == false){
+		return CFS()->get('contacts__title');
+	}else{
+		return CFS()->get('contacts__title', $pageId);
+	}
 
+}
+function getContactEmail($pageId = false){
+	if($pageId == false){
+		return CFS()->get('email');
+	}else{
+		return CFS()->get('email', $pageId);
+	}
+}
+function getContactAdress($pageId = false){
+	if($pageId == false){
+		return CFS()->get('adress');
+	}else{
+		return CFS()->get('adress', $pageId);
+	}
+}
+function getContactsPhones($pageId = false){
+	if($pageId == false){
+		return CFS()->get('phones');
+	}else{
+		return CFS()->get('phones', $pageId);
+	}
+
+}
+function getPersonals($pageId = false){
+	if($pageId == false){
+		return CFS()->get('personals');
+	}else{
+		return CFS()->get('personals', $pageId);
+	}
+}

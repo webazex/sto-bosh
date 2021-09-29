@@ -24,3 +24,11 @@ node_modules/
 *.idea/
 wp-config.php
 wp-config-sample.php
+cgi-bin*/
+img*/
+preload*/
+video*/
+cgi-bin/
+img/
+preload/
+video/

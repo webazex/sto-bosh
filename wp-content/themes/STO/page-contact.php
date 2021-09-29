@@ -3,6 +3,8 @@
 Template Name: Контакты
 */
 get_header();
+$phones = getContactsPhones();
+$personals = getPersonals();
 ?>
 <main class="contacts">
 	<section>
@@ -10,106 +12,31 @@ get_header();
 			<div class="container-contact-content">
 				<div class="contact-content__center-block">
 					<h3 class="center-block__title-h3">
-						<span class="title-h3__text">Контакты</span>
+						<span class="title-h3__text"><?=getContactTitle(); ?></span>
 					</h3>
 					<div class="center-block__content">
 						<div class="content__grid-persons">
+							<?php foreach ($personals as $person):?>
+
 							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
+								<img src="<?=$person['photo']; ?>" class="person-item__img" alt="">
 								<div class="person-item__data">
-									<span class="data__item professy">Сервис-консультант</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
+									<span class="data__item professy"><?=$person['prof']; ?></span>
+									<span class="data__item name"><?=$person['fio']; ?></span>
+									<a href="tel:+<?=preg_replace('/[^0-9]/', '', $person['phone']); ?>" class="data__item phone"><?=$person['phone']; ?></a>
 								</div>
 							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Сервис-консультант</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
-							<div class="grid-persons__person-item">
-								<img src="img/person.jpg" class="person-item__img" alt="">
-								<div class="person-item__data">
-									<span class="data__item professy">Консультант по продаже запасных частей</span>
-									<span class="data__item name">Денис Шевченко</span>
-									<a href="tel:+380503186001" class="data__item phone">+380503186001</a>
-								</div>
-							</div>
+							<?php endforeach; ?>
 						</div>
 						<div class="content__info-block">
-							<span class="info-block__adress">г.Херсон, Николаевское шоссе, 54</span>
+							<span class="info-block__adress"><?=getContactAdress();?></span>
 							<div class="info-block__phone-block">
-								<a href="tel:+380503186001" class="phone-block__item">+38(050)-318-6001</a>
-								<a href="tel:+380503186001" class="phone-block__item">+38(0552)-416-000</a>
+								<?php foreach ($phones as $item):
+								$href = preg_replace("/[^0-9]/", '', $item['phone']);?>
+								<a href="tel:+<?=$href; ?>" class="phone-block__item"><?=$item['phone']; ?></a>
+								<?php endforeach; ?>
 							</div>
-							<a href="mailto:admin@bmwcentre.ks.ua" class="info-block__mail">admin@bmwcentre.ks.ua</a>
+							<a href="mailto:<?=getContactEmail(); ?>" class="info-block__mail"><?=getContactEmail();?></a>
 						</div>
 					</div>
 				</div>
