@@ -9,6 +9,7 @@ $subtitle = CFS()->get('price_subtitle');
 $prices = CFS()->get('prices');
 ?>
 	<main class="prices">
+		<?=renderPopups();?>
 		<section>
 			<?=renderFirstSection($img, $title, $subtitle); ?>
 		</section>

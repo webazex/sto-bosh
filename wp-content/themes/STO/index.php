@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 	<main class="page">
+        <?=renderPopups();?>
         <section>
             <div class="site-size">
                 <div class="site-size__content">

@@ -6,6 +6,7 @@ get_header();
 
 ?>
     <main class="service">
+	    <?=renderPopups();?>
         <section>
             <?=renderFirstSection('', "Sample Maxima title");?>
         </section>

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>STO home</title>
+	<title><?php if (function_exists('seo_title_tag')) { seo_title_tag(); }
+		else { bloginfo('name'); wp_title();} ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,7 @@
 		<div class="site-size">
 			<div class="site-size__header">
 				<div class="header__logo-block">
-					<img src="img/logo.png" alt="">
+					<img src="<?=getHeaderLogo(); ?>" alt="">
 					<span>Bosch Service</span>
 				</div>
 				<div class="header__others-blocks">
@@ -89,56 +90,57 @@
 		</div>
 	</div>
 	<div class="mobile-dropdown">
-		<ul class="mobile-dropdown__mobile-menu">
-			<li class="mobile-menu__container-item has-subitem">
-				<div class="container-item__item">
-					<span>Услуги</span>
-				</div>
-				<ul class="container-item__submenu">
-					<li class="submenu__container">
-						<div class="container__item">
-							<span>Диагностика перед покупкой</span>
-						</div>
-					</li>
-					<li class="submenu__container">
-						<div class="container__item">
-							<span>Ремонт ходовой</span>
-						</div>
-					</li>
-					<li class="submenu__container">
-						<div class="container__item">
-							<span>АКП</span>
-						</div>
-					</li>
-				</ul>
-			</li>
-			<li class="mobile-menu__container-item">
-				<div class="container-item__item">
-					<span>Услуги</span>
-				</div>
-			</li>
-			<li class="mobile-menu__container-item has-subitem">
-				<div class="container-item__item">
-					<span>Услуги</span>
-				</div>
-				<ul class="container-item__submenu">
-					<li class="submenu__container">
-						<div class="container__item">
-							<span>Диагностика перед покупкой</span>
-						</div>
-					</li>
-					<li class="submenu__container">
-						<div class="container__item">
-							<span>Ремонт ходовой</span>
-						</div>
-					</li>
-					<li class="submenu__container">
-						<div class="container__item">
-							<span>АКП</span>
-						</div>
-					</li>
-				</ul>
-			</li>
-		</ul>
+        <?=renderStoHeaderMenu(true); ?>
+<!--		<ul class="mobile-dropdown__mobile-menu">-->
+<!--			<li class="mobile-menu__container-item has-subitem">-->
+<!--				<div class="container-item__item">-->
+<!--					<span>Услуги</span>-->
+<!--				</div>-->
+<!--				<ul class="container-item__submenu">-->
+<!--					<li class="submenu__container">-->
+<!--						<div class="container__item">-->
+<!--							<span>Диагностика перед покупкой</span>-->
+<!--						</div>-->
+<!--					</li>-->
+<!--					<li class="submenu__container">-->
+<!--						<div class="container__item">-->
+<!--							<span>Ремонт ходовой</span>-->
+<!--						</div>-->
+<!--					</li>-->
+<!--					<li class="submenu__container">-->
+<!--						<div class="container__item">-->
+<!--							<span>АКП</span>-->
+<!--						</div>-->
+<!--					</li>-->
+<!--				</ul>-->
+<!--			</li>-->
+<!--			<li class="mobile-menu__container-item">-->
+<!--				<div class="container-item__item">-->
+<!--					<span>Услуги</span>-->
+<!--				</div>-->
+<!--			</li>-->
+<!--			<li class="mobile-menu__container-item has-subitem">-->
+<!--				<div class="container-item__item">-->
+<!--					<span>Услуги</span>-->
+<!--				</div>-->
+<!--				<ul class="container-item__submenu">-->
+<!--					<li class="submenu__container">-->
+<!--						<div class="container__item">-->
+<!--							<span>Диагностика перед покупкой</span>-->
+<!--						</div>-->
+<!--					</li>-->
+<!--					<li class="submenu__container">-->
+<!--						<div class="container__item">-->
+<!--							<span>Ремонт ходовой</span>-->
+<!--						</div>-->
+<!--					</li>-->
+<!--					<li class="submenu__container">-->
+<!--						<div class="container__item">-->
+<!--							<span>АКП</span>-->
+<!--						</div>-->
+<!--					</li>-->
+<!--				</ul>-->
+<!--			</li>-->
+<!--		</ul>-->
 	</div>
 </header>

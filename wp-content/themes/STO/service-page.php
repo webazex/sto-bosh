@@ -5,6 +5,7 @@ Template Name: Страница услуги
 get_header();
 ?>
 <main class="service">
+	<?=renderPopups();?>
 	<?=renderFirstSection('', "Service one");?>
 	<?=renderServiceContentSection();?>
 	<section>

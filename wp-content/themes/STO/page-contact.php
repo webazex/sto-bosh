@@ -7,6 +7,7 @@ $phones = getContactsPhones();
 $personals = getPersonals();
 ?>
 <main class="contacts">
+	<?=renderPopups();?>
 	<section>
 		<div class="contact-bg">
 			<div class="container-contact-content">

@@ -5,6 +5,7 @@ Template Name: Главная страница
 get_header();
 ?>
 	<main class="home">
+        <?=renderPopups(); ?>
 		<section>
 			<div class="home__container-title">
 				<!--    =====popups===start====-->
